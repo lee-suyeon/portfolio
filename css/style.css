@@ -1,0 +1,316 @@
+@charset "utf-8";
+
+/* 레이아웃 */
+body{
+}
+#header{
+    background-color: #efe8d7;
+    padding: 3.5em 0 20em;
+}
+#nav{
+}
+#about{
+    color: #282b29;
+    background-color: #f4c4c4;
+    padding: 10em 0 20em;
+}
+/* 가운데 영역 */
+.container {
+    position: relative;
+    margin: 0 auto;
+}
+h1, h2, h3, h4 {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -2px;
+}
+
+/* 여백 */
+.row {padding: 0 1.75em;}
+
+
+
+/* nav 영역 */
+.nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #002a5a;
+    width: 96%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1em 0.7em;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    font-weight: 200;
+    color: #002a5a;
+    z-index: 30;
+}
+.nav .gnb .gnb_button {
+    width: 18px;
+    height: 18px;
+    background-color: #002a5a;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.3s;
+}
+.nav .gnb .gnb_menu {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 70px; right: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.nav .gnb .gnb_menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+.nav .gnb .gnb_menu li a {
+    display: inline-block;
+    color: #002a5a;
+    font-size: 1.2em;
+    margin: 0.2em 0.6em;
+    position: relative;
+}
+.nav .gnb .gnb_menu li a:before {
+    content: "";
+    width: 0px;
+    height: 2px;
+    background-color: #002a5a;
+    position: absolute;
+    top: 130%; left: 0;
+    transition: 0.3s;
+}
+.nav .gnb .gnb_menu li:hover a:before {
+    width: 100%;
+}
+
+
+/* 헤더 영역 */
+.header > h1 {
+    position: relative;
+    font-size: 10em;
+    font-weight: bold;
+    color: #002a5a;
+    line-height: 1.5;
+}
+/*
+.header > h1:before{
+    content: "01-";
+    font-family: "맑은 고딕", sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #002a5a;
+    
+    position: absolute;
+    top: 55px; left: 10px;
+}
+*/
+.header .header_box {
+    border-bottom: 1px solid #002a5a;
+}
+.header .header_box span {
+    padding: 0 40px;
+    z-index: 10;
+}
+.header_box em.name {
+    display: inline-block;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #002a5a;
+}
+.header img.sy_img {
+    width: 500px;
+    position: fixed;
+    top: 10%; right: 10%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+.header figure figcaption {
+    font-size: 1em;
+}
+.header div {
+    height: 225px;
+    overflow:hidden;
+    position: relative;
+}
+.header div span {
+    position: absolute;
+    top: 200px; left: 0;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    background-color: tomato;
+    z-index: 9999;
+    border-radius: 50%;
+    position: absolute;
+    top: 0; left: 0;
+    cursor: none;
+}
+
+::-moz-selection{
+    background: tomato;
+    color: #ffffff;
+}
+::selection{
+    background: powderblue;
+    color: #ffffff;
+}
+
+
+/* about 영역 */
+.about {
+    position: relative;
+}
+.about > h2 {
+    font-size: 170px;
+    margin-left: 50px;
+    padding-bottom: 200px;
+}
+.about article {
+    margin: 0 236px 120px 496px;
+}
+.about article h3 {
+    font-size: 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #282b29;
+}
+.about article ul li {
+    height: 100px;
+    line-height: 100px;
+    font-size: 24px;
+    border-bottom: 1px solid #282b29;
+    padding: 0 28px;
+}
+.about article ul li strong {
+    display: inline-block;
+    width: 30%;
+}
+.about article ul li em {
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+}
+.about .skill{
+    border-bottom: 1px solid #282b29;
+}
+.about .skill:after{content: ""; display: block; clear: both;}
+.about .skill li{
+    border: none;
+    float: left;
+    width: 50%;
+}
+.about .circle {
+    position: absolute;
+    top: 300px; left: 130px;
+    width: 220px;
+    height: 220px;
+    background-color: #282b29;
+    border-radius: 50%;
+}
+.about .skill .program {
+    position: relative;
+}
+.about .skill .skillbar {
+    width: 200px;
+    height: 5px;
+    color: #acacac;
+    position: absolute;
+}
+.about .circle svg text {
+    letter-spacing: 9px;
+}
+
+/*
+.circle svg { position: fixed; left: 0; top: 0; width: 100%; height: 540px;
+    -webkit-animation-name: rotate;
+    -moz-animation-name: rotate;
+     -ms-animation-name: rotate;
+      -o-animation-name: rotate;
+         animation-name: rotate;
+ -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;
+     -ms-animation-duration: 5s;
+      -o-animation-duration: 5s;
+         animation-duration: 5s;
+ -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+     -ms-animation-iteration-count: infinite;
+      -o-animation-iteration-count: infinite;
+         animation-iteration-count: infinite;
+ -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+     -ms-animation-timing-function: linear;
+      -o-animation-timing-function: linear;
+         animation-timing-function: linear;
+
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(0); }
+}
+@-moz-keyframes rotate {
+    from { -moz-transform: rotate(360deg); }
+    to { -moz-transform: rotate(0); }
+}
+@-ms-keyframes rotate {
+    from { -ms-transform: rotate(360deg); }
+    to { -ms-transform: rotate(0); }
+}
+@-o-keyframes rotate {
+    from { -o-transform: rotate(360deg); }
+    to { -o-transform: rotate(0); }
+}
+@keyframes rotate {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+}
+
+@-webkit-keyframes rotate {
+   from { -webkit-transform: rotate(360deg); }
+   to { -webkit-transform: rotate(0); }
+}
+@-moz-keyframes rotate {
+   from { -moz-transform: rotate(360deg); }
+   to { -moz-transform: rotate(0); }
+}
+@-ms-keyframes rotate {
+   from { -ms-transform: rotate(360deg); }
+   to { -ms-transform: rotate(0); }
+}
+@-o-keyframes rotate {
+   from { -o-transform: rotate(360deg); }
+   to { -o-transform: rotate(0); }
+}
+@keyframes rotate {
+   from { transform: rotate(360deg); }
+   to { transform: rotate(0); }
+}
+*/ 
+
+
+
+/* 미디어쿼리 */
+@media (max-width: 1290px) {
+
+}
+@media (max-width: 1024px) {
+    
+}
+@media (max-width: 960px) {
+    .header div:nth-child(2) {
+        height: 450px;
+    }
+}
+@media (max-width: 768px) {}
+@media (max-width: 600px) {}
+@media (max-width: 480px) {}
+@media (max-width: 320px) {}

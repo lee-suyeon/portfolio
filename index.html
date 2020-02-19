@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+    <html lang="ko">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <meta name="author" content="suyeon">
+            <meta name="description" content="포트폴리오">
+            <meta name="keywords" content="웹 퍼블리셔, 포트폴리오">
+            <title>Suyeon</title>
+
+            <!-- CSS -->
+            <link rel="stylesheet" href="css/reset.css">
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/font-awesome.css">
+
+            <!-- web font -->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800&display=swap" rel="stylesheet">
+
+
+            <!-- 제이쿼리 -->
+            
+            <script src="https://code.jquery.com/jquery.min.js"></script>
+
+            <script>
+                
+                $(function () {
+                    // 처음위치
+                    //$("body, html").animate({scrollTop:0}, 10);
+
+                    // 메뉴버튼
+                    var $gnbButton = $(".nav .gnb .gnb_button"),
+                        $gnbMenu = $(".nav .gnb .gnb_menu")
+
+                    $gnbButton.click(function () {
+                        if($gnbMenu.hasClass("open")){
+                            $gnbMenu.removeClass("open");
+                            $(this).css({
+                                background:"#002a5a",
+                                border: "none"
+                            });
+                        } else {
+                            $gnbMenu.addClass("open");
+                            $(this).css({
+                                background:"none",
+                                border:"1px solid #002a5a"
+                            });
+                        }
+                    });
+
+                    // sticky nav
+                    var $nav = $(".nav"),
+                        navOffset = $nav.offset().top;
+
+                    $(window).scroll(function () {
+                        var scrollTop = $(window).scrollTop();
+
+                        if(scrollTop > navOffset){
+                            $nav.css({"border-bottom": "2px solid #002a5a"});
+                            $(".portfolio").hide();
+                        } else{
+                            $nav.css({"border-bottom": "1px solid #002a5a"});
+                            $(".portfolio").show();
+                        }
+                    })
+
+                    // header box 
+                    var $headerBox = $(".header_box"),
+                        $headerText = $headerBox.find("span");
+                        duration = 500;
+
+                    $headerText.eq(0).animate({top:"-5px"},duration, function () {
+                        $headerText.eq(1).animate({top:"-5px"}, duration, function () {
+                            $headerText.eq(2).animate({top:"-5px"}, duration);
+                        });
+                    });
+                    
+                    // 사진 팝업
+                    
+                    var $cursor= $(".cursor");
+
+                    $(document).mousemove(function (e) {
+                        var mouseX = e.pageX;
+                        var mouseY = e.pageY;
+
+                        $cursor.css({
+                            left: mouseX + "px",
+                            top: mouseY + "px"
+                        });
+                       
+                    });
+                    $(document).trigger("mousemove");
+                    
+
+                // 사진 팝업 
+                    $name = $(".header span em");
+                    $syImg = $(".header .sy_img");
+
+                    
+                    $name.mousemove(function (e) {
+                        var mouseX = e.pageX;
+                        var mouseY = e.pageY;
+
+                        $syImg.css({
+                            left: (mouseX) + "px",
+                            top: (mouseY - 200) + "px"
+                        });
+                    });  
+                    
+
+                    $name.hover(function(){
+                        $(this).removeClass("name");
+                        $syImg.css({
+                            opacity: 1,
+                            visibility: "visible"
+                        });
+                        $name.text("Suyeon's");
+                    },function () {
+                        $(this).addClass("name");
+                        $syImg.css({
+                            opacity: 0,
+                            visibility: "hidden"
+                        })
+                        $name.text("??????");
+                    })
+                    
+                    //bg 변경
+                    /*
+                    var $about = $(".about");
+                        aboutTop = $about.offset().top - 500
+                    console.log(aboutTop);
+
+                    $(window).scroll(function () {
+                        var scrollTop = $(window).scrollTop();
+                        console.log(scrollTop)
+
+                        if(aboutTop < scrollTop){
+                            $("body").css({backgroundColor:"#f4c4c4"});
+                            $(".header > h1").css({color:"#282b29"});
+
+                        }
+                    })
+                    */
+                }); 
+                
+
+            </script>
+
+        </head>
+
+        <body>
+            <div class="cursor"></div>
+            <!--nav 영역-->
+            <nav id="nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="nav">
+                            <div class="logo">SY.</div>
+                            <div class="portfolio">Portfolio</div>
+                            <div class="gnb">
+                                <button class="gnb_button"><span class="ir_so">gnb</span></button>
+                                <ul class="gnb_menu">
+                                    <li><a href="#header">Hello</a></li>
+                                    <li><a href="#hello">About</a></li>
+                                    <li><a href="#hello">Project</a></li>
+                                    <li><a href="#hello">Contact</a></li>
+                                </ul>
+                            </div> <!-- //gnb -->
+                        </div>  <!-- //nav -->
+                    </div> <!-- //row -->
+                </div>  <!-- //container -->
+            </nav>
+
+            <!--헤더 영역-->
+            <header id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="header">
+                            <h1>
+                                <div class="header_box"><span>Hello,</span></div>
+                                <div class="header_box"><span>Here is <em class="name">??????</em></span></div>
+                                <div class="header_box"><span>World ─ !</span></div>
+                                <img src="img/suyeon.jpg" alt="suyeon" class="sy_img">
+                            </h1>
+                        </div> <!-- //header -->
+                    </div>  <!-- //row -->
+                </div>  <!-- //container -->
+            </header>
+
+            <!-- About -->
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="about">
+                            <h2>About.</h2>
+                            <article class="profile">
+                                <h3>Profile.</h3>
+                                <ul>
+                                    <li><strong>NAME</strong><em>이수연(LeeSuyeon)</em></li>
+                                    <li><strong>BIRTH</strong><em>1991.08.27</em></li>
+                                    <li><strong>LIKE</strong><em>MUSIC</em></li>
+                                </ul>
+                            </article>
+                            <article class="edu_exp">
+                                <h3>Education & Experience.</h3>
+                                <ul>
+                                    <li><strong>2010 - 2014</strong><em>가천대학교 실내건축학 전공</em></li>
+                                    <li><strong>2014 - 2018</strong><em>인테리어 설계사무소 Middlname</em></li>
+                                    <li><strong>2018 - 2019</strong><em>일본 워킹홀리데이</em></li>
+                                    <li><strong>2019 - 2020</strong><em>광주 SBS아카데미 웹 교육</em></li>
+                                </ul>
+                            </article>
+                            <article class="skill">
+                                <h3>Skill.</h3>
+                                <ul>
+                                    <li>
+                                        <div class="program">HTML<span>90%</span></div>
+                                        <div class="skillbar"></div>
+                                    </li>
+                                    <li>CSS</li>
+                                    <li>JavsScript</li>
+                                    <li>JQuery</li>
+                                    <li>Photoshop</li>
+                                    <li>illustrator</li>
+                                </ul>
+                            </article>
+                            <div class="circle">
+                            
+                            </div> <!-- //LDS -->
+                        </div>
+                    </div>
+                </div>
+            </section>            
+        </body>
+    </html>
