@@ -21,127 +21,11 @@
             <!-- 제이쿼리 -->
             
             <script src="https://code.jquery.com/jquery.min.js"></script>
+            <script src="js/main.js"></script>
 
             <script>
                 
-                $(function () {
-                    // 처음위치
-                    //$("body, html").animate({scrollTop:0}, 10);
-
-                    // 메뉴버튼
-                    var $gnbButton = $(".nav .gnb .gnb_button"),
-                        $gnbMenu = $(".nav .gnb .gnb_menu")
-
-                    $gnbButton.click(function () {
-                        if($gnbMenu.hasClass("open")){
-                            $gnbMenu.removeClass("open");
-                            $(this).css({
-                                background:"#002a5a",
-                                border: "none"
-                            });
-                        } else {
-                            $gnbMenu.addClass("open");
-                            $(this).css({
-                                background:"none",
-                                border:"1px solid #002a5a"
-                            });
-                        }
-                    });
-
-                    // sticky nav
-                    var $nav = $(".nav"),
-                        navOffset = $nav.offset().top;
-
-                    $(window).scroll(function () {
-                        var scrollTop = $(window).scrollTop();
-
-                        if(scrollTop > navOffset){
-                            $nav.css({"border-bottom": "2px solid #002a5a"});
-                            $(".portfolio").hide();
-                        } else{
-                            $nav.css({"border-bottom": "1px solid #002a5a"});
-                            $(".portfolio").show();
-                        }
-                    })
-
-                    // header box 
-                    var $headerBox = $(".header_box"),
-                        $headerText = $headerBox.find("span");
-                        duration = 500;
-
-                    $headerText.eq(0).animate({top:"-5px"},duration, function () {
-                        $headerText.eq(1).animate({top:"-5px"}, duration, function () {
-                            $headerText.eq(2).animate({top:"-5px"}, duration);
-                        });
-                    });
-                    
-                    // 사진 팝업
-                    
-                    var $cursor= $(".cursor");
-
-                    $(document).mousemove(function (e) {
-                        var mouseX = e.pageX;
-                        var mouseY = e.pageY;
-
-                        $cursor.css({
-                            left: mouseX + "px",
-                            top: mouseY + "px"
-                        });
-                       
-                    });
-                    $(document).trigger("mousemove");
-                    
-
-                // 사진 팝업 
-                    $name = $(".header span em");
-                    $syImg = $(".header .sy_img");
-
-                    
-                    $name.mousemove(function (e) {
-                        var mouseX = e.pageX;
-                        var mouseY = e.pageY;
-
-                        $syImg.css({
-                            left: (mouseX) + "px",
-                            top: (mouseY - 200) + "px"
-                        });
-                    });  
-                    
-
-                    $name.hover(function(){
-                        $(this).removeClass("name");
-                        $syImg.css({
-                            opacity: 1,
-                            visibility: "visible"
-                        });
-                        $name.text("Suyeon's");
-                    },function () {
-                        $(this).addClass("name");
-                        $syImg.css({
-                            opacity: 0,
-                            visibility: "hidden"
-                        })
-                        $name.text("??????");
-                    })
-                    
-                    //bg 변경
-                    /*
-                    var $about = $(".about");
-                        aboutTop = $about.offset().top - 500
-                    console.log(aboutTop);
-
-                    $(window).scroll(function () {
-                        var scrollTop = $(window).scrollTop();
-                        console.log(scrollTop)
-
-                        if(aboutTop < scrollTop){
-                            $("body").css({backgroundColor:"#f4c4c4"});
-                            $(".header > h1").css({color:"#282b29"});
-
-                        }
-                    })
-                    */
-                }); 
+                
                 
 
             </script>
@@ -177,9 +61,10 @@
                     <div class="row">
                         <div class="header">
                             <h1>
-                                <div class="header_box"><span>Hello,</span></div>
-                                <div class="header_box"><span>Here is <em class="name">??????</em></span></div>
-                                <div class="header_box"><span>World ─ !</span></div>
+                                <div class="text_box"><span class="inner_text">Hello,</span></div>
+                                <div class="text_box"><span class="inner_text">Here is </span></div>
+                                <div class="text_box"><span class="inner_text name">SuYeon's</span></div>
+                                <div class="text_box"><span class="inner_text">World !</span></div>
                                 <img src="img/suyeon.jpg" alt="suyeon" class="sy_img">
                             </h1>
                         </div> <!-- //header -->
@@ -193,43 +78,85 @@
                     <div class="row">
                         <div class="about">
                             <h2>About.</h2>
-                            <article class="profile">
-                                <h3>Profile.</h3>
-                                <ul>
-                                    <li><strong>NAME</strong><em>이수연(LeeSuyeon)</em></li>
-                                    <li><strong>BIRTH</strong><em>1991.08.27</em></li>
-                                    <li><strong>LIKE</strong><em>MUSIC</em></li>
-                                </ul>
-                            </article>
-                            <article class="edu_exp">
-                                <h3>Education & Experience.</h3>
-                                <ul>
-                                    <li><strong>2010 - 2014</strong><em>가천대학교 실내건축학 전공</em></li>
-                                    <li><strong>2014 - 2018</strong><em>인테리어 설계사무소 Middlname</em></li>
-                                    <li><strong>2018 - 2019</strong><em>일본 워킹홀리데이</em></li>
-                                    <li><strong>2019 - 2020</strong><em>광주 SBS아카데미 웹 교육</em></li>
-                                </ul>
-                            </article>
-                            <article class="skill">
-                                <h3>Skill.</h3>
-                                <ul>
-                                    <li>
-                                        <div class="program">HTML<span>90%</span></div>
-                                        <div class="skillbar"></div>
-                                    </li>
-                                    <li>CSS</li>
-                                    <li>JavsScript</li>
-                                    <li>JQuery</li>
-                                    <li>Photoshop</li>
-                                    <li>illustrator</li>
-                                </ul>
-                            </article>
+                            <p class="welcome">HI, I’M SUYEON AND A WEB-PUBLISHER. IT IS AMAZING HAVING YOU HERE, WELCOME!</p>
                             <div class="circle">
-                            
-                            </div> <!-- //LDS -->
-                        </div>
-                    </div>
-                </div>
-            </section>            
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                                    <defs>
+                                        <path id="circlePath" d=" M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+                                    </defs>
+                                    <circle cx="150" cy="100" r="50" fill="none"/>
+                                    <circle cx="150" cy="150" r="90" fill="#282b29" stroke="#282b29" stroke-width="0.7"/>
+                                    <!-- <circle cx="150" cy="150" r="52" fill="#282b29" stroke="#282b29" stroke-width="0.7"/> -->
+                                    <g>
+                                        <use xlink:href="#circlePath" fill="none"/>
+                                        <text fill="#f4c4c4">
+                                            <textPath xlink:href="#circlePath">LET'S DO*SOMETHING*</textPath>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </div> <!-- //circle-->
+                            <div class="about_contents">
+                                <div class="wrap">
+                                    <article class="profile">
+                                        <h3>Profile.</h3>
+                                        <ul>
+                                            <li><strong>Name.</strong><em>이수연(LEESUYEON)</em></li>
+                                            <li><strong>Birth.</strong><em>1991. 08. 27</em></li>
+                                            <li><strong>Phone.</strong><em>010. 9938. 6438</em></li>
+                                            <li><strong>E-mail.</strong><em>sroovy@naver.com</em></li>
+                                        </ul>
+                                    </article> <!-- //profile -->
+                                    <article class="skill">
+                                        <h3>Skill.</h3>
+                                        <ul>
+                                            <li><strong>HTML/CSS</strong>
+                                                <div class="skillbar">
+                                                    <div class="bar"></div>
+                                                    <div class="rate" data-rate="80"></div>
+                                                </div>
+                                            </li>
+                                            <li><strong>JavaScript</strong>
+                                                <div class="skillbar">
+                                                    <div class="bar"></div>
+                                                    <div class="rate" data-rate="70"></div>
+                                                </div></li>
+                                            <li><strong>jQuery</strong>
+                                                <div class="skillbar">
+                                                    <div class="bar"></div>
+                                                    <div class="rate" data-rate="80"></div>
+                                                </div>
+                                            </li>
+                                            <li><strong>Ps/Ai</strong>
+                                                <div class="skillbar">
+                                                    <div class="bar"></div>
+                                                    <div class="rate" data-rate="80"></div>
+                                                </div></li>
+                                        </ul>
+                                    </article> <!-- //skill -->                         
+                                </div> <!-- //wrap -->
+                                <article class="edu_exp">
+                                    <h3>Education & Experience.</h3>
+                                    <ul>
+                                        <li><strong>2010. 03 - 2014. 02</strong><em>가천대학교 실내건축학 전공</em></li>
+                                        <li><strong>2014. 06 - 2018. 02</strong><em>인테리어 설계사무소 Middlname</em></li>
+                                        <li><strong>2018. 04 - 2019. 08</strong><em>일본 워킹홀리데이</em></li>
+                                        <li><strong>2019. 09 - 2020. 01</strong><em>광주 SBS아카데미 웹퍼블리셔 과정 수료</em></li>
+                                    </ul>
+                                </article> <!-- //edu_exp -->  
+                                <article class="improve">
+                                    <h3>Constantly try to improve.</h3>
+                                    <ul>
+                                        <li><span class="numbering">01-</span><strong>Communication</strong><em>생각을 명확히 전달하고<br>상대방의 의견을 경청합니다.</em></li>
+                                        <li><span class="numbering">02-</span><strong>Creativity</strong><em>최신 트렌드와 기술 변화를 감지하고<br> 습득하기 위해 꾸준히 노력합니다. </em></li>
+                                        <li><span class="numbering">03-</span><strong>Problem solving</strong><em>적극적이고 다양한 방법으로<br>문제 해결 방법을 찾습니다.</em></li>
+                                    </ul>
+                                </article> <!-- //edu_exp -->  
+                            </div> <!-- //about_contents -->
+                        </div> <!-- //about-->
+                    </div> <!-- //row -->
+                </div>  <!-- //container -->
+            </section> <!-- #about -->
+            
+            
         </body>
     </html>

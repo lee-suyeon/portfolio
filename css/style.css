@@ -5,17 +5,18 @@ body{
 }
 #header{
     background-color: #efe8d7;
-    padding: 3.5em 0 20em;
+    padding: 3.75rem 0 12.5rem;
 }
 #nav{
 }
 #about{
     color: #282b29;
     background-color: #f4c4c4;
-    padding: 10em 0 20em;
+    padding: 160px 0 320px;
 }
 /* 가운데 영역 */
 .container {
+    width: 1280px;
     position: relative;
     margin: 0 auto;
 }
@@ -26,7 +27,7 @@ h1, h2, h3, h4 {
 }
 
 /* 여백 */
-.row {padding: 0 1.75em;}
+.row {padding: 0 28px;}
 
 
 
@@ -36,7 +37,7 @@ h1, h2, h3, h4 {
     left: 50%;
     transform: translateX(-50%);
     border-bottom: 1px solid #002a5a;
-    width: 96%;
+    width: 1240px;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -93,10 +94,6 @@ h1, h2, h3, h4 {
 /* 헤더 영역 */
 .header > h1 {
     position: relative;
-    font-size: 10em;
-    font-weight: bold;
-    color: #002a5a;
-    line-height: 1.5;
 }
 /*
 .header > h1:before{
@@ -110,38 +107,35 @@ h1, h2, h3, h4 {
     top: 55px; left: 10px;
 }
 */
-.header .header_box {
-    border-bottom: 1px solid #002a5a;
+.header .text_box {
+    position: relative;
+    height: 1.15em;
+    font-size: 130px;
+    font-weight: bold;
+    color: #002a5a;
+    line-height: 1.15em;
+    overflow:hidden;
+    border-bottom: 1px solid #002a5a; 
 }
-.header .header_box span {
-    padding: 0 40px;
+.header .text_box .inner_text { 
+    position: absolute;
+    top: 200px; left: 0;
+    padding: 0 0.5em;
     z-index: 10;
 }
-.header_box em.name {
+.text_box .name {
     display: inline-block;
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px #002a5a;
 }
-.header img.sy_img {
+.header .sy_img {
     width: 500px;
     position: fixed;
     top: 10%; right: 10%;
     opacity: 0;
     visibility: hidden;
     transition: 0.3s ease-in-out;
-}
-.header figure figcaption {
-    font-size: 1em;
-}
-.header div {
-    height: 225px;
-    overflow:hidden;
-    position: relative;
-}
-.header div span {
-    position: absolute;
-    top: 200px; left: 0;
 }
 
 .cursor {
@@ -170,66 +164,118 @@ h1, h2, h3, h4 {
     position: relative;
 }
 .about > h2 {
-    font-size: 170px;
-    margin-left: 50px;
-    padding-bottom: 200px;
+    font-size: 150px;
+    padding-left: 0.3em;
 }
-.about article {
-    margin: 0 236px 120px 496px;
+.about .welcome {
+    overflow: hidden;
+    padding-left: 4.5em;
+    font-size: 14px;
+    letter-spacing: -1px;
 }
-.about article h3 {
-    font-size: 48px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #282b29;
+.about .circle svg text {
+    letter-spacing: 10px;
+    font-size: 17px;
 }
-.about article ul li {
-    height: 100px;
-    line-height: 100px;
-    font-size: 24px;
-    border-bottom: 1px solid #282b29;
-    padding: 0 28px;
+.about .about_contents {
+    padding: 200px 0 0 416px;
 }
-.about article ul li strong {
+.about .about_contents h3 {
+    font-size: 30px;
+    font-weight: 500;
+    padding: 0 0 0.6em 0.3em;
+}
+.about .about_contents .wrap {
+    padding-bottom: 60px;
+}
+.about .about_contents .wrap:after {
+    content: ""; display: block; clear: both;
+}
+.about .about_contents .profile {
+    float: left;
+    width: 40%;
+    margin-right: 3%;
+}
+.about .about_contents .skill {
+    float: left;
+    width: 57%;
+}
+.about .skill .skillbar {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 5px;
+    background-color: #acacac;
+    margin-bottom: 4px;
+    margin-left: 85px;
+}
+.about .skill .skillbar .bar{
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 0;
+    background-color: #282b29;
+}
+.about .about_contents .edu_exp{
+    padding-bottom: 60px;
+}
+.about .about_contents ul {
+    padding: 0.8em 0.4em;
+    border-top: 2px solid #282b29;
+    border-bottom: 2px solid #282b29;
+}
+.about .about_contents li {
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    line-height: 1.8;
+}
+.about .about_contents li strong {
     display: inline-block;
     width: 30%;
 }
-.about article ul li em {
+.about .about_contents li em {
     display: inline-block;
     width: 70%;
     text-align: right;
 }
-.about .skill{
-    border-bottom: 1px solid #282b29;
+
+.about .improve ul {
+    padding: 0;
 }
-.about .skill:after{content: ""; display: block; clear: both;}
-.about .skill li{
-    border: none;
-    float: left;
-    width: 50%;
-}
-.about .circle {
-    position: absolute;
-    top: 300px; left: 130px;
-    width: 220px;
-    height: 220px;
-    background-color: #282b29;
-    border-radius: 50%;
-}
-.about .skill .program {
+.about .improve ul li {
     position: relative;
+    box-sizing: border-box;
+    border-bottom: 1px solid #282b29;
+    padding: 1.3em 0.4em;
+
 }
-.about .skill .skillbar {
-    width: 200px;
-    height: 5px;
-    color: #acacac;
+.about .improve ul li:last-child {
+    border: none;
+}
+.about .improve ul li strong {
+    width: 40%;
+    font-size: 22px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    font-weight: 400;
+}
+.about .improve ul li em {
+    width: 60%;
+    box-sizing: border-box;
+    text-align: right;
+    line-height: 1.6;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.about .improve ul li .numbering {
     position: absolute;
-}
-.about .circle svg text {
-    letter-spacing: 9px;
+    top: 29px; left: 7px;
+    font-size: 14px;
 }
 
+
+.circle svg { position: absolute; left: -200px; top: 200px; width: 60%; height: 230px; }
 /*
-.circle svg { position: fixed; left: 0; top: 0; width: 100%; height: 540px;
     -webkit-animation-name: rotate;
     -moz-animation-name: rotate;
      -ms-animation-name: rotate;
@@ -294,23 +340,35 @@ h1, h2, h3, h4 {
    from { transform: rotate(360deg); }
    to { transform: rotate(0); }
 }
-*/ 
+*/
+
 
 
 
 /* 미디어쿼리 */
 @media (max-width: 1290px) {
-
+    .container {width: 100%;}
+    .nav {
+        width: 94%;
+    }
 }
 @media (max-width: 1024px) {
     
 }
 @media (max-width: 960px) {
-    .header div:nth-child(2) {
-        height: 450px;
+}
+@media (max-width: 768px) {
+    .header .text_box{
+        font-size: 100px;
     }
 }
-@media (max-width: 768px) {}
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    #header {
+        padding-bottom: 8rem;
+    }
+    .header .text_box{
+        font-size: 80px;
+    }
+}
 @media (max-width: 480px) {}
 @media (max-width: 320px) {}
