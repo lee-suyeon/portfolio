@@ -1,14 +1,12 @@
 @charset "utf-8";
 
 /* 레이아웃 */
-body{
-}
+
 #header{
     background-color: #efe8d7;
     padding: 3.75rem 0 12.5rem;
 }
-#nav{
-}
+#nav{}
 #about{
     color: #282b29;
     background-color: #f4c4c4;
@@ -109,7 +107,7 @@ h1, h2, h3, h4 {
 */
 .header .text_box {
     position: relative;
-    height: 1.15em;
+    height: 1.2em;
     font-size: 130px;
     font-weight: bold;
     color: #002a5a;
@@ -163,27 +161,30 @@ h1, h2, h3, h4 {
 .about {
     position: relative;
 }
-.about > h2 {
+.about  h2 {
     font-size: 150px;
+    line-height: 1.1;
     padding-left: 0.3em;
-}
-.about .welcome {
-    overflow: hidden;
-    padding-left: 4.5em;
-    font-size: 14px;
-    letter-spacing: -1px;
 }
 .about .circle svg text {
     letter-spacing: 10px;
     font-size: 17px;
 }
 .about .about_contents {
-    padding: 200px 0 0 416px;
+    position: relative;
+    padding: 170px 0 0 416px;
+}
+.about .welcome {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    /* position: absolute;
+    top: 0; left: 0; */
 }
 .about .about_contents h3 {
     font-size: 30px;
     font-weight: 500;
-    padding: 0 0 0.6em 0.3em;
+    padding: 0 0 0.3em 0.3em;
 }
 .about .about_contents .wrap {
     padding-bottom: 60px;
@@ -203,17 +204,21 @@ h1, h2, h3, h4 {
 .about .skill .skillbar {
     display: inline-block;
     position: relative;
-    width: 200px;
+    width: 61%;
     height: 5px;
     background-color: #acacac;
     margin-bottom: 4px;
-    margin-left: 85px;
 }
 .about .skill .skillbar .bar{
     position: absolute;
     top: 0; left: 0; bottom: 0;
     width: 0;
     background-color: #282b29;
+}
+.about .skill .skillbar .rate {
+    position: absolute;
+    top: -3px; right: -25px;
+    font-size: 12px;
 }
 .about .about_contents .edu_exp{
     padding-bottom: 60px;
@@ -227,7 +232,7 @@ h1, h2, h3, h4 {
     font-size: 16px;
     font-weight: 200;
     letter-spacing: -1px;
-    line-height: 1.8;
+    padding: 0.3em 0;
 }
 .about .about_contents li strong {
     display: inline-block;
@@ -253,14 +258,14 @@ h1, h2, h3, h4 {
     border: none;
 }
 .about .improve ul li strong {
-    width: 40%;
+    width: 45%;
     font-size: 22px;
     box-sizing: border-box;
     padding-left: 50px;
     font-weight: 400;
 }
 .about .improve ul li em {
-    width: 60%;
+    width: 55%;
     box-sizing: border-box;
     text-align: right;
     line-height: 1.6;
@@ -269,13 +274,15 @@ h1, h2, h3, h4 {
 }
 .about .improve ul li .numbering {
     position: absolute;
-    top: 29px; left: 7px;
-    font-size: 14px;
+    top: 31px; left: 7px;
+    font-size: 12px;
 }
-
-
-.circle svg { position: absolute; left: -200px; top: 200px; width: 60%; height: 230px; }
-/*
+.circle svg { 
+    position: absolute; 
+    left: -200px; top: 200px; 
+    width: 60%; 
+    height: 230px; 
+    z-index: 10;
     -webkit-animation-name: rotate;
     -moz-animation-name: rotate;
      -ms-animation-name: rotate;
@@ -340,7 +347,7 @@ h1, h2, h3, h4 {
    from { transform: rotate(360deg); }
    to { transform: rotate(0); }
 }
-*/
+
 
 
 
@@ -356,19 +363,109 @@ h1, h2, h3, h4 {
     
 }
 @media (max-width: 960px) {
+    .about h2 {
+        font-size: 120px;
+    }
+    .about .about_contents {
+        padding: 150px 0 0 216px;
+    }
+    .circle svg {
+        left: -150px;
+    }
 }
 @media (max-width: 768px) {
     .header .text_box{
         font-size: 100px;
     }
+    .about .about_contents {
+        padding: 120px 0 0 0;
+    }
+    .circle svg {
+       display: none;
+    }
+    .about h2 {
+        padding-left: 0;
+    }
+    .about .about_contents h3 {
+        font-size: 24px;
+    }
+    .about .about_contents .profile {
+        width: 47%;
+    }
+    .about .about_contents .skill {
+        width: 50%;
+    }
 }
 @media (max-width: 600px) {
     #header {
-        padding-bottom: 8rem;
+        padding: 6rem 0 8rem;
     }
     .header .text_box{
-        font-size: 80px;
+        font-size: 70px;
+    }
+    .about .about_contents li {
+        font-size: 14px;
+    }
+    .about .about_contents .wrap,
+    .about .about_contents .edu_exp {
+        padding-bottom: 45px;
+    }
+    .about .improve ul li strong {
+        padding-left: 35px;
     }
 }
-@media (max-width: 480px) {}
-@media (max-width: 320px) {}
+@media (max-width: 480px) {
+    .header .text_box .inner_text{
+        padding: 0;
+    }
+    .about h2 {
+        font-size: 90px;
+    }
+    .about .welcome {
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+    .about .about_contents {
+        padding-top: 90px;
+    }
+    .about .about_contents .profile {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+    
+    .about .about_contents .skill {
+        width: 100%;
+    }
+    .about .about_contents .wrap,
+    .about .about_contents .edu_exp {
+        padding-bottom: 30px;
+    }
+    .about .about_contents .edu_exp li strong {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+    .about .about_contents .edu_exp li em {
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+    .about .improve ul li strong {
+        width: 100%;
+        margin-bottom: 5px;
+        padding-left: 0;
+    }
+    .about .improve ul li em {
+        width: 100%;
+        text-align: left;
+        font-size: 12px;
+    }
+    .about .improve ul li .numbering {
+        display: none;
+    }
+    .about .improve ul li em br {display: none;}
+}
+@media (max-width: 320px) {
+    .about h2 {
+        font-size: 70px;
+    }
+}

@@ -1,5 +1,8 @@
 $(function () {
-    // 처음위치
+    // 미디어 쿼리
+    var width = $(window).width();
+
+    // 새로고침 스크롤
     $("body, html").animate({scrollTop:0}, 10);
 
     // 메뉴버튼
@@ -38,7 +41,7 @@ $(function () {
         }
     })
     
-    // header box 
+    // header box animation 
     var $textBox = $(".text_box"),
         $innerText = $textBox.find(".inner_text");
         duration = 500;
@@ -50,8 +53,9 @@ $(function () {
             });
         });
     });
+
     
-    // 사진 팝업
+    // 커서
     /*
     var $cursor= $(".cursor");
 
@@ -66,11 +70,11 @@ $(function () {
        
     });
     $(document).trigger("mousemove");
-   
+   */
 
 // 사진 팝업 
     $name = $(".text_box .name");
-    $syImg = $(".header .sy_img");
+    $syImg = $(".header figure .sy_img");
 
     
     $name.mousemove(function (e) {
@@ -78,7 +82,7 @@ $(function () {
         var mouseY = e.pageY;
 
         $syImg.css({
-            left: (mouseX) + "px",
+            left: (mouseX + 100) + "px",
             top: (mouseY - 200) + "px"
         });
     });  
@@ -90,16 +94,15 @@ $(function () {
             opacity: 1,
             visibility: "visible"
         });
-        $name.text("Suyeon's");
     },function () {
         $(this).addClass("name");
         $syImg.css({
             opacity: 0,
             visibility: "hidden"
         })
-        $name.text("??????");
     })
     
+
     //bg 변경
     /*
     var $about = $(".about");
@@ -122,27 +125,20 @@ $(function () {
     // skillbar
     
     var $aboutContents = $(".about"),
-         $skillBar = $(".skill .skillbar"),
-         $progressBar = $skillBar.find(".bar"),
-         $progressText= $skillBar.find(".rate"),
-         progressRate = $progressText.attr("data-rate");
+         $skillBar = $(".skill .skillbar");
 
          var aboutPos = $aboutContents.offset().top;
 
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
         if(aboutPos < scrollTop){
-
-            $progressBar.animate({width:progressRate + "%"},1000);
-
-            window.setInterval(textAnimation, 1000/20);
-
-                function textAnimation () {
-                    var currentWidth = $progressBar.width() / 
-                    $skillBar.width() * 100;              
-                    $progressText.text(parseInt(currentWidth) + "%");
-                }
-        }
-    })
+            $skillBar.each(function () {
+                $(this).find(".bar").animate({width:$(this).attr("data-rate") + "%"},1000);
+            });            
+                $(".circle svg").css({position:"fixed"});
+            } else {
+                $(".circle svg").css({position:"absolute"});
+            }
+    });
     
 }); 
