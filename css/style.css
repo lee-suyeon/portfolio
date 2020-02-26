@@ -1,44 +1,35 @@
 @charset "utf-8";
-
+/* 변수 */
+:root {
+    --bg-color: #efe8d7;
+    --main-color: #002a5a;
+}
 /* 레이아웃 */
+body{
+    background-color: var(--bg-color);
+    transition: 0.3s;
+}
+#header{padding: 60px 0 150px;}
+#nav{}
+#about{padding: 250px 0 150px;}
+#project {padding: 250px 0 150px;}
+#contact {padding: 250px 0 50px;}
 
-#header{
-    background-color: #efe8d7;
-    padding: 3.75rem 0 12.5rem;
-}
-#nav{
-}
-#about{
-    color: #282b29;
-    background-color: #f4c4c4;
-    padding: 160px 0 320px;
-}
-#project {
-    background-color: #a7d2c8;
-    padding: 160px 0 240px;
-}
-#contact {
-    background-color: #f3c868;
-    padding-top: 160px;
-}
 /* 가운데 영역 */
-.container {
-    position: relative;
-    margin: 0 auto;
-}
+.container {}
+/* 여백 */
+.row {padding: 0 28px;}
+
+/* 제목 */
 h1, h2, h3, h4 {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -2px;
-    
 }
 h2 {
     font-size: 150px;
-    line-height: 1.1;
-    padding-left: 0.3em;
 }
-/* 여백 */
-.row {padding: 0 28px;}
+
 
 
 
@@ -47,16 +38,16 @@ h2 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    border-bottom: 1px solid #002a5a;
     width: 100%;
     height: 60px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    font-size: 18px;
+    color: var(--main-color);
     padding: 0 1.2em 0.5em;
-    box-sizing: border-box;
-    font-size: 1.1em;
-    color: #002a5a;
+    border-bottom: 1px solid var(--main-color);
     z-index: 30;
 }
 .nav.sticky {
@@ -70,14 +61,14 @@ h2 {
     position: relative;
     width: 16px;
     height: 16px;
-    background-color: #002a5a;
+    background-color: var(--main-color);
     border-radius: 50%;
     transition: 0.3s;
     cursor: pointer;
 }
 .nav .gnb .gnb_menu {
     position: absolute;
-    top: 65px; right: 10px;
+    top: 60px; right: 10px;
     display: flex;
     flex-direction: row;
     opacity: 0;
@@ -91,7 +82,7 @@ h2 {
 .nav .gnb .gnb_menu li a {
     position: relative;
     display: inline-block;
-    color: #002a5a;
+    color: var(--main-color);
     font-size: 16px;
     margin: 0.35em 0.6em;
 }
@@ -99,7 +90,7 @@ h2 {
     content: "";
     width: 0px;
     height: 2px;
-    background-color: #002a5a;
+    background-color: var(--main-color);
     position: absolute;
     top: 125%; left: 0;
     transition: 0.3s;
@@ -110,30 +101,15 @@ h2 {
 
 
 /* 헤더 영역 */
-.header > h1 {
-    position: relative;
-}
-/*
-.header > h1:before{
-    content: "01-";
-    font-family: "맑은 고딕", sans-serif;
-    font-size: 16px;
-    font-weight: 200;
-    color: #002a5a;
-    
-    position: absolute;
-    top: 55px; left: 10px;
-}
-*/
+.header{}
 .header .text_box {
     position: relative;
+    overflow:hidden;
     height: 1.2em;
     font-size: 130px;
     font-weight: bold;
-    color: #002a5a;
-    line-height: 1.15em;
-    overflow:hidden;
-    border-bottom: 1px solid #002a5a; 
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
 }
 .header .text_box .inner_text { 
     position: absolute;
@@ -146,7 +122,7 @@ h2 {
     display: inline-block;
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #002a5a;
+    -webkit-text-stroke: 1px var(--main-color);
 }
 .header .sy_img {
     width: 500px;
@@ -155,22 +131,6 @@ h2 {
     opacity: 0;
     visibility: hidden;
     transition: 0.3s ease-in-out;
-}
-
-.cursor {
-    width: 20px;
-    height: 20px;
-    background-color: tomato;
-    z-index: 9999;
-    border-radius: 50%;
-    position: absolute;
-    top: 0; left: 0;
-    cursor: none;
-}
-
-::-moz-selection{
-    background: tomato;
-    color: #ffffff;
 }
 ::selection{
     background: powderblue;
@@ -181,7 +141,7 @@ h2 {
 /* about 영역 */
 .about {
     position: relative;
-    color: #282b29;
+    color: var(--main-color);
 }
 .about .about_contents {
     position: relative;
@@ -226,7 +186,7 @@ h2 {
     position: absolute;
     top: 0; left: 0; bottom: 0;
     width: 0;
-    background-color: #282b29;
+    background-color: var(--main-color);
 }
 .about .skill .skillbar .rate {
     position: absolute;
@@ -238,8 +198,8 @@ h2 {
 }
 .about .about_contents ul {
     padding: 0.8em 0.4em;
-    border-top: 2px solid #282b29;
-    border-bottom: 2px solid #282b29;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
 }
 .about .about_contents li {
     font-size: 16px;
@@ -263,7 +223,7 @@ h2 {
 .about .improve ul li {
     position: relative;
     box-sizing: border-box;
-    border-bottom: 1px solid #282b29;
+    border-bottom: 1px solid var(--main-color);
     padding: 1.3em 0.4em;
 
 }
@@ -294,7 +254,7 @@ h2 {
 
 /* 프로젝트 영역 */
 .project {
-    color: #e63039;
+    color: var(--main-color);;
     font-family: 'Montserrat', sans-serif;
 }
 .project .project_contents {
@@ -302,57 +262,54 @@ h2 {
     text-align: center;
 }
 .project .project_contents li {
-    padding-bottom: 150px;
+    padding-bottom: 300px;
     position: relative;
 }
-.project .project_contents a img {
-    width: 70%;
-    transform: skew(2deg);
-    animation: shake 2s infinite;
-    animation-direction: alternate;
+.project .project_contents li:last-child{
+    padding-bottom: 0;
 }
-
-@keyframes shake {
-  0% {
-    transform: skewY(2deg);
-  }
-  100% {
-    transform: skewY(-2deg);
-  }
+.project .project_contents a figure {
+    perspective: 40px;
+}
+.project .project_contents a img {
+    width: 60%;
 }
 .project .project_contents a h3{
     position: absolute;
-    top: 85px; right: 100px;
+    top: 50%; left:50%;
+    transform: translate(-50%, -70%);
     font-size: 100px;
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #e63039;
+    -webkit-text-stroke: 1px var(--main-color);
     transition: all 0.3s;
+    z-index: 10;
 }
 .project .project_contents a h3:hover {
-    -webkit-text-fill-color: #e63039;
+    -webkit-text-fill-color: var(--main-color);
     -webkit-text-stroke: none;
 }
 .project .project_contents a .explore {
     position: absolute;
-    color: #e63039;
+    color: var(--main-color);
     bottom: 158px; right: 295px;
 }
+    
 
 /* 컨택트 영역 */
 .contact {
     overflow: hidden;
     position: relative;
-    color: #338c57;
+    color:  var(--main-color);
     font-family: 'Montserrat', sans-serif;
 }
 .contact h2 {
     position: absolute;
     top: 0; left: 0;
     line-height: 0.9;
-    /* transition: 0.3s; */
 }
 .contact h2.sticky {
+    margin-top: 40px;
     position: fixed;
     top: 0; left: 28px;
 }
@@ -371,13 +328,14 @@ h2 {
 .contact .contact_contents ul {
     width: 50%;
     margin: 50px 0;
-    border-top: 2px solid #338c57;
-    border-bottom: 2px solid #338c57;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
 }
 .contact .contact_contents li {
-    border-bottom: 1px solid #338c57;
+    border-bottom: 1px solid  var(--main-color);
     font-size: 30px;
     padding: 1em 0.3em;
+
 }
 .contact .contact_contents li:last-child {
     border-bottom: none;
@@ -395,16 +353,15 @@ h2 {
     display: block;
     text-align: center;
     font-size: 95px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+.contact .contact_contents li:hover a.insta {
     -webkit-font-smoothing: subpixel-antialiased;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #338c57;
+    -webkit-text-stroke: 1px  var(--main-color);
 
-}
-.contact .contact_contents li a.insta button {
-    width: 50px; 
-    height: 50px;
-    margin-left: 0.1em;
-    background: url(../img/go.png) no-repeat;
+    cursor: url(../img/go.png), pointer;
 }
 .contact .circle svg text {
     letter-spacing: 10px;
@@ -481,6 +438,30 @@ h2 {
    to { transform: rotate(0); }
 }
 
+/* 스크롤 바 */
+::-webkit-scrollbar {
+    width: 10px;  /* 세로축 스크롤바 길이 */
+    height: 20px;  /* 가로축 스크롤바 길이 */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: var(--bg-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+  }
+  ::-webkit-scrollbar-button:start {
+    display: none;
+  }
+  ::-webkit-scrollbar-button:end {
+    display: none;
+  }
+
+
+
+
 
 /* 미디어쿼리 */
 @media (max-width: 1290px) {
@@ -502,6 +483,8 @@ h2 {
         padding: 150px 0 0 216px;
     }
 @media (max-width: 768px) {
+    #about  {padding-bottom: 50px;}
+    #project {padding-bottom: 50px;}
     .row {
         padding: 0 16px;
     }
@@ -518,7 +501,7 @@ h2 {
         font-size: 100px;
     }
     .text_box .name {
-        -webkit-text-fill-color: #002a5a;
+        -webkit-text-fill-color: var(--main-color);;
         -webkit-text-stroke: none;
     }
     .header .text_box .inner_text {
@@ -529,7 +512,7 @@ h2 {
         padding-top: 5rem;
     }
     .header .sy_img {
-        width: 70%;;
+        width: 65%;
         position: static;
         visibility: visible;
         opacity: 1;
@@ -546,6 +529,9 @@ h2 {
     .about .about_contents .skill {
         width: 50%;
     }
+    .project .project_contents a h3 {
+        font-size: 70px;
+    }
     .contact .lds {
         font-size: 30px;
     }
@@ -558,8 +544,16 @@ h2 {
     .contact .contact_contents li a.insta {
         font-size: 60px;
     }
+    .circle svg {
+        height: 180px;
+    }
 }
 @media (max-width: 600px) {
+    #about, #project {padding-top: 150px;}
+    #contact {
+        padding-bottom: 0;
+        padding-top: 150px;
+    }
     h2 {
         font-size: 100px;
     }
@@ -570,9 +564,6 @@ h2 {
     .header .text_box{
         font-size: 70px;
     }
-    #about {
-        padding: 100px 0 200px;
-    }
     .about .about_contents li {
         font-size: 14px;
     }
@@ -582,6 +573,12 @@ h2 {
     }
     .about .improve ul li strong {
         padding-left: 35px;
+    }
+    .project .project_contents li {
+        padding-bottom: 200px;
+    }
+    .project .project_contents a h3 {
+        font-size: 55px;
     }
     .contact h2 br {
         display: none;
@@ -599,16 +596,17 @@ h2 {
     .circle svg {
         display: none;
     }
+    
 }
 @media (max-width: 480px) {
+    #header, #about, #project {
+        padding-bottom: 0;
+    }
     .row {
         padding: 0 8px
     }
     h2 {
         font-size: 70px;
-    }
-    #header {
-        padding-bottom: 3rem;
     }
     .header .text_box .inner_text{
         padding: 0;
@@ -658,10 +656,9 @@ h2 {
         display: none;
     }
     .about .improve ul li em br {display: none;}
-}
-
-@media (max-width: 400px) {
-
+    .project .project_contents {
+        padding-top: 150px;
+    }
 }
 @media (max-width: 320px) {
     h2 {

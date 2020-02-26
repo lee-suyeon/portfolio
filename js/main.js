@@ -1,9 +1,6 @@
 $(function () {
-    // 미디어 쿼리
-    var width = $(window).width();
-
     // 새로고침 스크롤
-    $("body, html").animate({scrollTop:0}, 10);
+    $("html,body").animate({scrollTop:0}, 10);
 
 
 
@@ -17,10 +14,8 @@ $(function () {
     $gnbButton.click(function () {
         if($gnbMenu.hasClass("open")){
             $gnbMenu.removeClass("open");
-            $(this).css({background:"#002a5a",transform:"scale(1)" });
         } else {
             $gnbMenu.addClass("open");
-            $(this).css({background:"#e63039",transform:"scale(1.1)"});
         }
     });
     
@@ -69,25 +64,6 @@ $(function () {
             });
         });
     });
-    
-
-    
-    // 커서
-    /*
-    var $cursor= $(".cursor");
-
-    $(document).mousemove(function (e) {
-        var mouseX = e.pageX;
-        var mouseY = e.pageY;
-
-        $cursor.css({
-            left: mouseX + "px",
-            top: mouseY + "px"
-        });
-       
-    });
-    $(document).trigger("mousemove");
-   */
 
 // 사진 팝업 
     $name = $(".text_box .name");
@@ -122,49 +98,45 @@ $(function () {
             visibility: "hidden"
         })
     })
-    
 
-    //bg 변경
-    /*
-    var $about = $(".about");
-        aboutTop = $about.offset().top - 500
-    console.log(aboutTop);
+    // scroll event - color change
 
-    $(window).scroll(function () {
-        var scrollTop = $(window).scrollTop();
-        console.log(scrollTop)
-
-        if(aboutTop < scrollTop){
-            $("body").css({backgroundColor:"#f4c4c4"});
-            $(".header > h1").css({color:"#282b29"});
-
-        }
-    })
-    */
-
-
-    // skillbar
-    
-    var $aboutContents = $(".about"),
-         $skillBar = $(".skill .skillbar");
-
-         var aboutPos = $aboutContents.offset().top;
+    var sectionPos = {
+        aboutPos : $("#about").offset().top,
+        projectPos : $("#project").offset().top,
+        contactPos : $("#contact").offset().top
+    }
 
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
-        if(scrollTop >= aboutPos){
-            $skillBar.each(function () {
+        if (scrollTop >= 0 && scrollTop < sectionPos.aboutPos){
+            $("html").removeAttr("style");
+        } else if(scrollTop >= sectionPos.aboutPos - 150 && scrollTop < sectionPos.projectPos){
+            $(".skillbar").each(function () {
                 $(this).find(".bar").animate({width:$(this).attr("data-rate") + "%"},1000);
-            });            
+                changeColor("#282b29", "#f4c4c4");
+            });       
+        } else if (scrollTop >= sectionPos.projectPos - 150 && scrollTop < sectionPos.contactPos){
+            changeColor("#e63039", "#a7d2c8");
+        } else if (scrollTop >= sectionPos.contactPos){
+            changeColor("#338c57", "#f3c868");
         }
     });
-    
+
+    var changeColor = function (main, bg) {
+        document.documentElement.style.setProperty("--main-color",main);
+        document.documentElement.style.setProperty("--bg-color",bg);
+    }
+
+    var showProject = function () {
+        
+    }
+
 
     // contact 
-    var $contactTitle = $(".contact h2"),
-        contactPos = $contactTitle.offset().top;
 
-        $(window).scroll(function () {
+
+     /*   $(window).scroll(function () {
             var scrollTop = $(window).scrollTop();
             if(contactPos <= scrollTop){
                 $contactTitle.addClass("sticky");
@@ -173,5 +145,5 @@ $(function () {
             }
             
     });
-
+    */
 }); 
