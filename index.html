@@ -14,96 +14,111 @@
             <link rel="stylesheet" href="css/style.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
-
             <!-- web font -->
             <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800&display=swap" rel="stylesheet">
 
+            <!-- favicon -->
+            <link rel="shortcut icon" href="icon/favicon.ico">
+            <link rel="apple-touch-icon-precomposed" href="icon/favicon_72.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="96x96" href="icon/favicon_96.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/favicon_144.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="192x192" href="icon/favicon_192.png" />
 
-            <!-- 제이쿼리 -->
-            
+
+            <!-- 스크립트 -->
             <script src="https://code.jquery.com/jquery.min.js"></script>
             <script src="js/main.js"></script>
 
-            <script>
-                
-                
-                
-
+            <!-- HTLM5shiv ie6~8 -->
+            <!--[if lt IE 9]> 
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script type="text/javascript">
+                alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
             </script>
+            <![endif]-->
+
 
         </head>
-
         <body>
+
+
             <header id="header">
                 <div class="header">
-                    <h1><a href="#">SSYYNN</a></h1>
-                </div>
-                <nav class="nav">
-                    <h2 class="ir_so">전체메뉴</h2>
-                    <a href="#" class="ham">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </a>
-                </nav>
-                <div class="instagram"><a href="#">instagram</a></div>
-                <div class="copyright">&copy; 2020. SUYEON<br>All right reserved</div>
-                <div class="overlay">
-                    <ul class="gnb">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">PROJECT</a></li>
-                        <li><a href="#">CONTACT</a></li>
-                    </ul>
-                </div>
+                    <h1><a href="#" class="home">SSYYNN</a></h1>
+                    <nav class="nav">
+                        <div class="menu_icon">
+                            <h2 class="ir_so">전체메뉴</h2>
+                            <a href="#" class="ham">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </a>
+                        </div> <!-- //menu_icon -->
+                        <div class="gnb">
+                            <ul>
+                                <li><a href="#">HOME</a></li>
+                                <li><a href="#">ABOUT</a></li>
+                                <li><a href="#">PROJECT</a></li>
+                                <li><a href="#">CONTACT</a></li>
+                            </ul>
+                        </div>  <!-- //gnb -->
+                    </nav>
+                </div>  <!-- //header -->
             </header>
 
-            <section class="main">
-                <div class="hello">
-                    <p>Hello! I’m Suyeon,<br> web-publisher.</p>
-                    <p>This is my first<br> portfolio.</p>
-                    <div class="photo">
-                        <figure>
-                            <figcaption class="ir_so">suyeon</figcaption>
-                            <img src="img/suyeon.png" alt="suyeon">
+
+            <section id="main">
+                <div class="main_content">
+                    <div class="hello">
+                        <p>Hello! I’m Suyeon,<br> web-publisher.</p>
+                        <p>This is my first<br> portfolio.</p>
+                        <div class="photo">
+                            <figure>
+                                <figcaption class="ir_so">suyeon</figcaption>
+                                <img src="img/suyeon.png" alt="suyeon">
+                            </figure>
                             <div class="chatbubble">
                                 <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
                                 </div>
                                 <div class="welcome">Welcome!</div>
+                            </div> <!-- //chatbubble-->
+                        </div>  <!-- //photo-->
+                    </div>  <!-- //hello -->
+                    <a href="#">
+                        <div class="scroll_button">
+                            <div class="scroll_down">
+                                <strong>scroll</strong>
+                                <span class="down"></span>
                             </div>
-                        </figure>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="scroll">
-                        <div class="scroll_down">
-                            <strong>scroll</strong>
-                            <span class="down"></span>
                         </div>
-                    </div>
-                </a>
-                </div>
+                    </a>
+                </div>  <!-- //main_content -->
             </section>
 
-            <section id="profile">
+            
+            <section id="about">
                 <div class="container">
                     <div class="row">
-                        <div class="profile">
-                            <h2>Profile.</h2>
-                            <div class="profile_container">
+                        <div class="about">
+                            <h2 class="title">About.</h2>
+                            <div class="contents_container">
+                                
                                 <div class="about_me">
                                     <h3>A LITTEL ABOUT ME</h3>
                                     <div class="memoji">
                                         <img src="img/memoji.png"  srcset="img/memoji@2.png" alt="memoji">
                                     </div>
-                                    <p>안녕하세요. 신입 웹 퍼블리셔 이수연 입니다. <br>
-                                        코드를 통해 디자인을 현실화 시키는 다양한 방법에 흥미를 느꼈습니다.<br>
-                                        다양한 프로젝트에 참여 할 수 있는 기회를 기대하고 있습니다.</p>
-                                </div>
+                                    <p>
+                                        안녕하세요. 신입 웹 퍼블리셔 이수연입니다. <br>
+                                        다양한 코딩 언어를 사용하여 웹 디자인을 구현하는 것에 흥미를 느꼈습니다.<br>
+                                        프로젝트에 참여 할 수 있는 기회를 기대하고 있습니다.
+                                    </p>
+                                </div>  <!-- //about -->
+
                                 <div class="wrap">
                                     <div class="like">
                                         <h3>LIKE</h3>
@@ -137,72 +152,68 @@
                                             </li>
                                         </ul>
                                     </div> <!-- //like -->
+
                                     <div class="skill">
                                         <h3>AVAILABLE SKILL</h3>
                                         <button class="skillbutton">Click!</button>
                                         <ul>
                                             <li>
-                                                <strong>HTML/CSS</strong>
-                                                <div class="skillbar"  data-rate="80">
+                                                <div class="legend">HTML/CSS</div>
+                                                <div class="skillbox"  data-rate="80">
                                                     <div class="bar"></div>
-                                                    <div class="rate">80%</div>
+                                                    <div class="rate">0%</div>
                                                 </div>
                                             </li>
-                                            <li><strong>JavaScript</strong>
-                                                <div class="skillbar" data-rate="70">
+                                            <li>
+                                                <div class="legend">JavaScript</div>
+                                                <div class="skillbox" data-rate="70">
                                                     <div class="bar"></div>
-                                                    <div class="rate">70%</div>
-                                                </div></li>
-                                            <li><strong>jQuery</strong>
-                                                <div class="skillbar" data-rate="80">
-                                                    <div class="bar"></div>
-                                                    <div class="rate">80%</div>
+                                                    <div class="rate">0%</div>
                                                 </div>
                                             </li>
-                                            <li><strong>Ps/Ai</strong>
-                                                <div class="skillbar" data-rate="90">
+                                            <li>
+                                                <div class="legend">jQuery</div>
+                                                <div class="skillbox" data-rate="80">
                                                     <div class="bar"></div>
-                                                    <div class="rate">90%</div>
+                                                    <div class="rate">0%</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="legend">Ps/Ai</div>
+                                                <div class="skillbox" data-rate="90">
+                                                    <div class="bar"></div>
+                                                    <div class="rate">0%</div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div> <!-- //skill -->
                                 </div> <!-- // wrap-->
+
                                 <div class="history">
                                     <h3>MY HISTORY</h3>
-                                    <div class="graph">
+                                    <div class="history_contents">
                                         <div class="history_bar"></div>
                                         <ul>
                                             <li>
-                                                <span class="dot"></span>
-                                                <p>2010 - 2014<br>
-                                                    가천대학교 <br>
-                                                    실내건축학과 전공
-                                                </p>
+                                                <span class="year">2010 - 2014</span>
+                                                <em>가천대학교<br>실내건축학과 전공</em>
                                             </li>
                                             <li>
-                                                <span class="dot"></span>
-                                                <p>2014 - 2018<br>
-                                                    인테리어 설계사무소<br>
-                                                    MIDDLE NAME
-                                                </p>
+                                                <span class="year">2014 - 2018</span>
+                                                <em>인테리어 설계사무소<br>MIDDLE NAME</em>
                                             </li>
                                             <li>
-                                                <span class="dot"></span>
-                                                <p>2018 - 2019<br>
-                                                    일본 워킹홀리데이
-                                                </p>
+                                                <span class="year">2018 - 2019</span>
+                                                <em>일본 워킹홀리데이</em>
                                             </li>
                                             <li>
-                                                <span class="dot"></span>
-                                                <p>2019 - 2020<br>
-                                                    광주 SBS 아카데미<br>
-                                                    웹 퍼블리셔 과정수료 
-                                                </p>
+                                                <span class="year">2019 - 2020</span>
+                                                <em>광주 SBS 아카데미<br>웹 퍼블리셔 과정수료 </em>
                                             </li>
                                         </ul>
                                     </div>   <!-- //graph -->
                                 </div>  <!-- //history -->
+
                                 <div class="tryto">
                                     <h3>CONSTANTLY TRY TO IMPROVE</h3>
                                     <ul>
@@ -213,8 +224,10 @@
                                                 </svg>
                                             </div>
                                             <em>Communication</em>
-                                            <p>제 생각을 명확히 말하고
-                                                전달합니다. 제 생각을 명확히 말하고 전달합니다.</p>
+                                            <p>
+                                                제 생각을 명확히 말하고
+                                                전달합니다. 제 생각을 명확히 말하고 전달합니다.
+                                            </p>
                                         </li>
                                         <li>
                                             <div class="svgicon">
@@ -224,9 +237,13 @@
                                                 </svg>
                                             </div>
                                             <em>Creativity</em>
-                                            <p>최신 트렌드와 기술 변화를 
+                                            <p>
+                                                최신 트렌드
+                                                와 기술 변화를 
                                                 감지하고 습득하기 위해 학습합니다.
-                                                디자인을 가장 잘 구현하는 방법을 파악</p>
+                                                디자인을 가장 잘 구현하는 방법을 파악
+                                                새로운 언어와 기술을 배우는 데 매우 열심입니다.
+                                            </p>
                                         </li>
                                         <li>
                                             <div class="svgicon">
@@ -235,64 +252,132 @@
                                                 </svg>
                                             </div>
                                             <em>Problem solving</em>
-                                            <p>적극적이고 다양한 방법으로
+                                            <p>
+                                                적극적이고 다양한 방법으로
                                                 문제 해결 방법을 찾습니다.
-                                                고객과 의사 소통하고 아이디어를 파악</p>
+                                                고객과 의사 소통하고 아이디어를 파악
+                                                변화하는 환경에서 빠르게 조정할 수 있습니다
+                                            </p>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>  <!-- //profile_container -->
-                        </div>  <!-- //profile -->
+                                </div>  <!-- //try to-->
+                            </div>  <!-- //contents_container -->
+                        </div>  <!-- //about -->
                     </div>  <!-- //row -->
                 </div>  <!-- // container -->
             </section>
+
             
             <section id="project">
                 <div class="project">
-                    <ul>
+                    <h2 class="title">Project.</h2>
+                    <ul class="project_list">
                         <li>
                             <div class="cover">
+                                <h4>MEGABOX<span class="year">2019</span></h4>
                                 <span class="category">DRINK WEBSITE</span>
-                                <p>기획, 디자인, 코딩</p>
-                                <p>제작기간 : 2주</p>
-                                <p>RESPONSIVE</p>
-                                <h4>MAXIM COFFEE</h4>
+                                <p>
+                                    디자인, 코딩<br>
+                                    제작기간 : 2주<br>
+                                    RESPONSIVE
+                                </p>
                             </div>
-                            <img src="img/maxim.jpg" alt="maximcoffee">
+                            <figure>
+                                <figcaption class="ir_so">맥심커피</figcaption>
+                                <a href="#">
+                                    <img src="img/maxim.jpg" alt="maximcoffee">
+                                </a>
+                            </figure>
                         </li>
                         <li>
                             <div class="cover">
+                                <h4>MAXIM COFFEE<span class="year">2020</span></h4>
                                 <span class="category">DRINK WEBSITE</span>
-                                <p>기획, 디자인, 코딩</p>
-                                <p>제작기간 : 2주</p>
-                                <p>RESPONSIVE</p>
-                                <h4>MAXIM COFFEE</h4>
+                                <p>기획, 디자인, 코딩<br>
+                                    제작기간 : 2주<br>
+                                    RESPONSIVE
+                                </p>
                             </div>
-                            <img src="img/maxim.jpg" alt="maximcoffee">
+                            <figure>
+                                <figcaption class="ir_so">맥심커피</figcaption>
+                                <a href="#">
+                                    <img src="img/maxim.jpg" alt="maximcoffee">
+                                </a>
+                            </figure>
                         </li>
                         <li>
                             <div class="cover">
-                                <span class="category">DRINK WEBSITE</span>
-                                <p>기획, 디자인, 코딩</p>
-                                <p>제작기간 : 2주</p>
-                                <p>RESPONSIVE</p>
-                                <h4>MAXIM COFFEE</h4>
+                                <h4>PARASITE<span class="year">2020</span></h4>
+                                <span class="category">MOVIE WEBSITE</span>
+                                <p>기획, 디자인, 코딩<br>
+                                    제작기간 : 2주<br>
+                                    RESPONSIVE
+                                </p>
                             </div>
-                            <img src="img/maxim.jpg" alt="maximcoffee">
+                            <figure>
+                                <figcaption class="ir_so">맥심커피</figcaption>
+                                <a href="#">
+                                    <img src="img/maxim.jpg" alt="maximcoffee">
+                                </a>
+                            </figure>
                         </li>
                         <li>
                             <div class="cover">
-                                <span class="category">DRINK WEBSITE</span>
-                                <p>기획, 디자인, 코딩</p>
-                                <p>제작기간 : 2주</p>
-                                <p>RESPONSIVE</p>
-                                <h4>MAXIM COFFEE</h4>
+                                <h4>PORTFOLIO<span class="year">2020</span></h4>
+                                <span class="category">PORTFOLIO WEBSITE</span>
+                                <p>기획, 디자인, 코딩<br>
+                                    제작기간 : 2주<br>
+                                    RESPONSIVE
+                                </p>
                             </div>
-                            <img src="img/maxim.jpg" alt="maximcoffee">
+                            <figure>
+                                <figcaption class="ir_so">맥심커피</figcaption>
+                                <a href="#">
+                                    <img src="img/maxim.jpg" alt="maximcoffee">
+                                </a>
+                            </figure>
                         </li>
                     </ul>
-                </div>
+                </div>  <!-- //project -->
             </section>
+
+
+            <section id="contact">
+                <div class="container">
+                    <div class="row">                  
+                        <div class="contact">
+                            <h2 class="title">Contact.</h2>
+                            <div class="contents_container">
+                                <div class="wating">
+                                    <p>I'm waiting for your contact.</p>
+                                    <figure>
+                                        <figcaption class="ir_so">suyeon</figcaption>
+                                        <img src="img/suyeon2" srcset="img/suyeon2@2.png" alt="suyeon">
+                                    </figure>
+                                </div> <!-- //wating -->
+
+                                <div class="infor">
+                                    <ul>
+                                        <li><a href="#">sroovy@naver.com</a></li>
+                                        <li><a href="#">github</a></li>
+                                        <li><a href="#">010-9939-6438</a></li>
+                                    </ul>
+                                    <div class="instagram"><a href="https://www.instagram.com/su_ynn_/" target="blank">instagram</a></div>
+                                    <div class="copyright">&copy; 2020. SUYEON<br>All right reserved</div>
+                                </div>  <!-- //infor-->
+
+                            </div>  <!-- //contents_container-->
+                        </div>  <!-- //contact-->
+                    </div>  <!-- //row-->
+                </div>  <!-- //container-->
+            </section>
+
+            <footer id="footer">
+                <div class="thankyou">
+                    <div class="heart"></div>
+                    <p>Thankyou for visiting<br>My website.</p>
+                </div>
+            </footer>
 
         </body>
     </html>
