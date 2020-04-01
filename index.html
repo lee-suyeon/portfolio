@@ -27,6 +27,7 @@
 
             <!-- 스크립트 -->
             <script src="https://code.jquery.com/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
             <script src="js/main.js"></script>
 
             <!-- HTLM5shiv ie6~8 -->
@@ -56,12 +57,14 @@
                             </a>
                         </div> <!-- //menu_icon -->
                         <div class="gnb">
-                            <ul>
-                                <li><a href="#">HOME</a></li>
-                                <li><a href="#">ABOUT</a></li>
-                                <li><a href="#">PROJECT</a></li>
-                                <li><a href="#">CONTACT</a></li>
-                            </ul>
+                            <div class="gnb_menu">
+                                <ul>
+                                    <li><a href="#">HOME</a></li>
+                                    <li><a href="#">ABOUT</a></li>
+                                    <li><a href="#">PROJECT</a></li>
+                                    <li><a href="#">CONTACT</a></li>
+                                </ul>
+                            </div>
                         </div>  <!-- //gnb -->
                     </nav>
                 </div>  <!-- //header -->
@@ -70,9 +73,11 @@
 
             <section id="main">
                 <div class="main_content">
-                    <div class="hello">
-                        <p>Hello! I’m Suyeon,<br> web-publisher.</p>
-                        <p>This is my first<br> portfolio.</p>
+                    <div class="main_view">
+                        <div class="hello">
+                            <p>Hello! I’m Suyeon,<br> web-publisher.</p>
+                            <p>This is my first<br> portfolio.</p>
+                        </div>
                         <div class="photo">
                             <figure>
                                 <figcaption class="ir_so">suyeon</figcaption>
@@ -87,13 +92,10 @@
                                 <div class="welcome">Welcome!</div>
                             </div> <!-- //chatbubble-->
                         </div>  <!-- //photo-->
-                    </div>  <!-- //hello -->
+                    </div>  <!-- //main_view -->
                     <a href="#">
-                        <div class="scroll_button">
-                            <div class="scroll_down">
-                                <strong>scroll</strong>
-                                <span class="down"></span>
-                            </div>
+                        <div class="more_button">
+                            <strong class="more">more +</strong>
                         </div>
                     </a>
                 </div>  <!-- //main_content -->
@@ -104,9 +106,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="about">
-                            <h2 class="title">About.</h2>
-                            <div class="contents_container">
-                                
+                            <h2 class="title hide">About.</h2>
+                            <div class="contents_container hide showbox">
                                 <div class="about_me">
                                     <h3>A LITTEL ABOUT ME</h3>
                                     <div class="memoji">
@@ -121,7 +122,7 @@
 
                                 <div class="wrap">
                                     <div class="like">
-                                        <h3>LIKE</h3>
+                                        <h3>THINGS I LIKE</h3>
                                         <ul>
                                             <li>
                                                 <span class="like_svg">
@@ -192,7 +193,6 @@
                                 <div class="history">
                                     <h3>MY HISTORY</h3>
                                     <div class="history_contents">
-                                        <div class="history_bar"></div>
                                         <ul>
                                             <li>
                                                 <span class="year">2010 - 2014</span>
@@ -269,87 +269,95 @@
 
             
             <section id="project">
-                <div class="project">
-                    <h2 class="title">Project.</h2>
-                    <ul class="project_list">
-                        <li>
-                            <div class="cover">
-                                <h4>MEGABOX<span class="year">2019</span></h4>
-                                <span class="category">DRINK WEBSITE</span>
-                                <p>
-                                    디자인, 코딩<br>
-                                    제작기간 : 2주<br>
-                                    RESPONSIVE
-                                </p>
-                            </div>
-                            <figure>
-                                <figcaption class="ir_so">맥심커피</figcaption>
-                                <a href="#">
-                                    <img src="img/maxim.jpg" alt="maximcoffee">
-                                </a>
-                            </figure>
-                        </li>
-                        <li>
-                            <div class="cover">
-                                <h4>MAXIM COFFEE<span class="year">2020</span></h4>
-                                <span class="category">DRINK WEBSITE</span>
-                                <p>기획, 디자인, 코딩<br>
-                                    제작기간 : 2주<br>
-                                    RESPONSIVE
-                                </p>
-                            </div>
-                            <figure>
-                                <figcaption class="ir_so">맥심커피</figcaption>
-                                <a href="#">
-                                    <img src="img/maxim.jpg" alt="maximcoffee">
-                                </a>
-                            </figure>
-                        </li>
-                        <li>
-                            <div class="cover">
-                                <h4>PARASITE<span class="year">2020</span></h4>
-                                <span class="category">MOVIE WEBSITE</span>
-                                <p>기획, 디자인, 코딩<br>
-                                    제작기간 : 2주<br>
-                                    RESPONSIVE
-                                </p>
-                            </div>
-                            <figure>
-                                <figcaption class="ir_so">맥심커피</figcaption>
-                                <a href="#">
-                                    <img src="img/maxim.jpg" alt="maximcoffee">
-                                </a>
-                            </figure>
-                        </li>
-                        <li>
-                            <div class="cover">
-                                <h4>PORTFOLIO<span class="year">2020</span></h4>
-                                <span class="category">PORTFOLIO WEBSITE</span>
-                                <p>기획, 디자인, 코딩<br>
-                                    제작기간 : 2주<br>
-                                    RESPONSIVE
-                                </p>
-                            </div>
-                            <figure>
-                                <figcaption class="ir_so">맥심커피</figcaption>
-                                <a href="#">
-                                    <img src="img/maxim.jpg" alt="maximcoffee">
-                                </a>
-                            </figure>
-                        </li>
-                    </ul>
-                </div>  <!-- //project -->
+                <div class="container">
+                    <div class="row">
+                        <div class="project">
+                            <h2 class="title hide">Project.</h2>
+                            <div class="project_list showbox hide">
+                                <div class="maxim">
+                                    <a href="https://sroovy.github.io/megabox/" target="blank">
+                                        <figure>
+                                            <figcaption class="ir_so">메가박스</figcaption>
+                                            <img src="img/maxim.jpg" alt="maximcoffee">
+                                        </figure>
+                                        <div class="cover">
+                                            <h4>MEGABOX<span class="year">2019</span></h4>
+                                            <span class="category">MOVIE WEBSITE</span>
+                                            <p>
+                                                디자인, 코딩<br>
+                                                제작기간 : 2주<br>
+                                                RESPONSIVE
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="megabox">
+                                    <a href="https://sroovy.github.io/maxim/" target="blank">
+                                        <figure>
+                                            <figcaption class="ir_so">맥심커피</figcaption>
+                                            <img src="img/maxim.jpg" alt="maximcoffee">
+                                        </figure>
+                                        <div class="cover">
+                                            <h4>MAXIM COFFEE<span class="year">2020</span></h4>
+                                            <span class="category">DRINK WEBSITE</span>
+                                            <p>
+                                                디자인, 코딩<br>
+                                                제작기간 : 2주<br>
+                                                RESPONSIVE
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="parasite">
+                                    <a href="https://sroovy.github.io/maxim/" target="blank">
+                                        <figure>
+                                            <figcaption class="ir_so">기생충</figcaption>
+                                            <img src="img/maxim.jpg" alt="maximcoffee">
+                                        </figure>
+                                        <div class="cover">
+                                            <h4>PARASITE<span class="year">2020</span></h4>
+                                            <span class="category">MOVIE WEBSITE</span>
+                                            <p>
+                                                디자인, 코딩<br>
+                                                제작기간 : 2주<br>
+                                                RESPONSIVE
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="portfolio">
+                                    <a href="https://sroovy.github.io/maxim/" target="blank">
+                                        <figure>
+                                            <figcaption class="ir_so">포트폴리오</figcaption>
+                                            <img src="img/maxim.jpg" alt="maximcoffee">
+                                        </figure>
+                                        <div class="cover">
+                                            <h4>PORTFOLIO<span class="year">2020</span></h4>
+                                            <span class="category">PORTFOLIO</span>
+                                            <p>
+                                                디자인, 코딩<br>
+                                                제작기간 : 2주<br>
+                                                RESPONSIVE
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> <!-- //project list -->    
+                        </div>  <!-- //project -->
+                    </div>
+                </div>
             </section>
-
-
+            
             <section id="contact">
                 <div class="container">
                     <div class="row">                  
                         <div class="contact">
-                            <h2 class="title">Contact.</h2>
-                            <div class="contents_container">
+                            <h2 class="title hide">Contact.</h2>
+                            <div class="contents_container hide showbox">
                                 <div class="wating">
-                                    <p>I'm waiting for your contact.</p>
+                                    <div class="bubble">
+                                        <p>I'm waiting for your contact.</p>
+                                    </div>
                                     <figure>
                                         <figcaption class="ir_so">suyeon</figcaption>
                                         <img src="img/suyeon2" srcset="img/suyeon2@2.png" alt="suyeon">
@@ -358,12 +366,25 @@
 
                                 <div class="infor">
                                     <ul>
-                                        <li><a href="#">sroovy@naver.com</a></li>
-                                        <li><a href="#">github</a></li>
-                                        <li><a href="#">010-9939-6438</a></li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="infor_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M22 4H2.01L2 20h20V4zm-2 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+                                                </div>
+                                                <em>sroovy@naver.com</em>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="infor_icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 15.46l-5.27-.61-2.52 2.52c-2.83-1.44-5.15-3.75-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg>
+                                                </div>
+                                                <em>010-9939-6438</em>
+                                            </a>
+                                        </li>
                                     </ul>
-                                    <div class="instagram"><a href="https://www.instagram.com/su_ynn_/" target="blank">instagram</a></div>
                                     <div class="copyright">&copy; 2020. SUYEON<br>All right reserved</div>
+                                    <div class="instagram"><a href="https://www.instagram.com/su_ynn_/" target="blank">instagram</a></div>
                                 </div>  <!-- //infor-->
 
                             </div>  <!-- //contents_container-->

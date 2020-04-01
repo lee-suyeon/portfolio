@@ -1,7 +1,7 @@
 $(function () {
 
     
-    $("html,body").stop().animate({scrollTop: 0});
+    //$("html,body").stop().animate({scrollTop: 0});
 
     // home
     $(".home").click(function (e) {
@@ -36,9 +36,21 @@ $(function () {
         $hamButton.removeClass("active");
     });
 
+       //scroll event
+
+   $(window).scroll(function () {
+       var scrollTop = $(window).scrollTop();
+       $contents.each(function () {
+           if($(this).offset().top - 400 <= scrollTop){
+               $(this).find(".hide").addClass("show");
+           };
+       });
+   });
+
     // photo
     var $photo = $(".photo");
     $photo.addClass("show");
+    $(".more_button").addClass("show");
 
     $photo.find(".chatbubble").click(function () {
         $(".dots").hide();
@@ -46,14 +58,17 @@ $(function () {
    });
 
    //scroll button
-   var profilePos = $("#about").offset().top;
+   var aboutPos = $("#about").offset().top;
 
-   $(".scroll_button").click(function (e) {
+   $(".more_button").click(function (e) {
        e.preventDefault();
-        $("html,body").stop().animate({scrollTop:profilePos});
-   })
+        $("html,body").stop().animate({scrollTop:aboutPos});
+   });
+
+
+
+
    
-   // wheel event
 
 
    // ---------------------about--------------------

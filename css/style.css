@@ -7,7 +7,9 @@ body {
     position: relative;
     z-index: 100;
 }
-#main {height: 100vh;}
+#main {
+    height: 100vh;
+}
 #about {padding: 200px 0;}
 #project {padding: 200px 0;}
 #contact {padding: 200px 0;}
@@ -23,13 +25,39 @@ body {
     background-color: #fff;
     box-shadow: 20px 20px #7f827c;
     padding: 130px;
+    transition: 0.4s;
+    transition-delay: 0.4s;
 }
 h2.title {
+    position: relative;
     font-size: 80px;
     font-weight: 700;
     margin-bottom: 0.7em;
+    transition: 0.4s;
+}
+h2.title.show,
+.showbox.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
 }
 
+
+
+/* h2.title:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(109,198,204,1) 0%, rgba(234,229,200,1) 100%);
+    animation: revealText 3s forwards;
+} */
 
 
 /* 헤더영역 */
@@ -45,7 +73,7 @@ h2.title {
 /* nav 영역 */
 .nav .menu_icon {
     position: fixed;
-    top: 30px; right: 30px;
+    top: 24px; right: 30px;
     z-index: 9999;
 }
 .nav .menu_icon .ham {
@@ -60,7 +88,7 @@ h2.title {
 .nav .menu_icon .ham .bar {
     position: absolute;
     top: 0; 
-    height: 3px;
+    height: 2px;
     width: 25px;
     background-color: #333;
     transition: 0.2s;
@@ -77,17 +105,25 @@ h2.title {
 
 .nav .gnb {
     position: fixed;
-    top: 0; right: 0;
-    width: 0%;
-    height: 100%;
+    top: 0; right: -100%;
+    bottom: 0;
+    width: 100%;
     background-color: rgba(251, 255, 71, 1);
     transition: 0.3s ease-in;
     z-index: 3000;
+    cursor: pointer;
 }
-.nav .gnb.open {width: 100%;}
+.nav .gnb.open {right: 0}
+.nav .gnb .gnb_menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 .nav .gnb ul {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding-top: 200px;
 }
 .nav .gnb ul li a {
     display: block;
@@ -104,12 +140,21 @@ h2.title {
 }
 
 /* main 영역 */
-.main_content .hello {
-    position: absolute;
+.main_content .main_view {
+    padding-top: 15%;
+    padding-left: 10%;
+    position: relative;
+    /* position: absolute;
     top: 50%; left: 10%;
-    transform: translateY(-70%);
+    transform: translateY(-70%); */
 }
-.hello p {
+.main_content .main_view .hello{position: relative;}
+.main_content .main_view .hello:before{
+    content: "2019-2020";
+    position: absolute;
+    top: -20px; left: 3px;
+}
+.main_view .hello p {
     display: inline-block;
     font-size: 84px;
     font-weight: 700;
@@ -155,24 +200,24 @@ h2.title {
         z-index: -1;
     }
 }
-
-.hello .photo {
+.main_view .photo {
     position: absolute;
-    top: 0; right: 10%;
+    top: 60%; right: 10%;
     opacity: 0;
     visibility: hidden;
     transition: 1s;
     transition-delay: 2.5s;
     z-index: -100;
 }
-.hello .photo figure {position: relative;}
-.hello .photo img {width: 700px;}
-.hello .photo.show {
-    top: -10%;
+.main_view .photo figure {position: relative;}
+/* .hello .photo img {width: 700px;} */
+.main_view .photo.show {
+    top: 50%;
     opacity: 1;
     visibility: visible;
 }
-.hello .photo .chatbubble {
+
+.main_view .photo .chatbubble {
     position: absolute;
     bottom: 27%; left: 48%;
     width: 140px;
@@ -223,15 +268,18 @@ h2.title {
     text-align: center;
 }
 
-.main_content .scroll_button {
+.main_content .more_button {
     position: absolute;
-    bottom: 5%; left: 25%;
+    bottom: 5%; left: 30%;
     width: 150px;
     height: 150px;
     box-sizing: border-box;
     border-radius: 50%;
     background-color: #fbff47;
-    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+    transition-delay: 3.5s;
     animation: jumping 2s infinite;
 }
 @keyframes jumping {
@@ -242,23 +290,22 @@ h2.title {
     60% {
         transform: translateY(-10px);}
 }
-.scroll_button:hover {
-    transform: scale(0.9);
-    box-shadow: 0 0 40px 40px #fbff47;
-}
-.scroll_button .scroll_down strong{
+
+.more_button .more{
     display: block;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 600;
     text-align: center;
-    margin-top: 3.5em;
+    line-height: 150px;
 }
-.scroll_button .scroll_down .down {
-    display: block;
-    width: 27px;
-    height: 15px;
-    background: url(../img/icon.png) no-repeat 0 -1px;
-    margin: 8px auto;
+
+.main_content .more_button.show {
+    opacity: 1;
+    visibility: visible;
+}
+.main_content .more_button.show:hover {
+    transform: scale(0.9);
+    box-shadow: 0 0 40px 40px #fbff47;
 }
 
 
@@ -266,11 +313,22 @@ h2.title {
 .about .contents_container > div {margin-bottom: 130px;}
 .about .contents_container > div:last-child {margin-bottom: 0;}
 .about .contents_container h3 {
+    position: relative;
     font-size: 22px;
     text-decoration: underline;
     margin-bottom: 4em;
+    line-height: 1.2;
 }
-.about_me h3 {text-align: center;}
+/* .about .contents_container h3:before {
+    content: "";
+    position: absolute;
+    top: 25px; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right,  rgba(234,229,200,1) 0%, rgba(109,198,204,1) 100%);
+
+} */
+.about_me {text-align: center;}
 .about_me .memoji {
     position: relative;
     width: 180px;
@@ -283,39 +341,38 @@ h2.title {
     display: block;
     position: absolute;
     top: 50%; left: 50%;
-    width: 100px;
+    width: 55%;
     transform: translate(-50%, -50%);
 }
 .about_me p {
     position: relative;
     font-size: 18px;
-    text-align: center;
     line-height: 1.6;
     margin-top: 3em;
 }
 .about_me p:before {
     content: "";
     position: absolute;
-    top: -5px; left: 150px;
+    top: 0; left: 140px;
     width: 32px;
     height: 27px;
-    background: url(../img/icon.png) no-repeat -34px -1px;
+    background: url(../img/db_quotes1.png) no-repeat center center /cover;
 }
 .about_me p:after {
     content: "";
     position: absolute;
-    top: 65px; right: 150px;
+    top: 4px; right: 140px;
     width: 32px;
     height: 27px;
-    background: url(../img/icon.png) no-repeat -74px -1px;
+    background: url(../img/db_quotes2.png) no-repeat center center / cover;
 }
 
 
 .wrap {display: flex;}
 .wrap .like {
-    width: 50%;
+    width: 45%;
     box-sizing: border-box;
-    padding-right: 10%;
+    padding-right: 5%;
 }
 .like ul {
     display: flex;
@@ -340,11 +397,11 @@ h2.title {
 
 .skill {
     position: relative;
-    width: 50%;
+    width: 55%;
 }
 .skill .skillbutton{
     position: absolute;
-    top: 54%; left: 3%;
+    top: 54%; left: 5%;
     width: 65px; 
     height: 65px;
     font-weight: 600;
@@ -367,17 +424,17 @@ h2.title {
 .skill .skillbutton.active {
     box-shadow: 0 0 15px 15px #fbff47;
 }
-.skill ul {padding-left: 125px;}
+.skill ul {padding-left: 25%;}
 .skill ul li {margin-bottom: 1.2em;}
 .skill ul li .legend {
     display: inline-block;
-    width: 25%;
+    width: 30%;
     font-size: 16px;
 }
 .skill ul li .skillbox {
     display: inline-block;
     position: relative;
-    width: 60%;
+    width: 55%;
     height: 5px;
     background-color: #acacac;
     margin-bottom: 4px;
@@ -390,28 +447,26 @@ h2.title {
 }
 .skill ul li .skillbox .rate {
     position: absolute;
-    top: -3px; right: -40px;
+    top: -3px; right: -35px;
     font-size: 14px;
-}
-
-.history .history_contents .history_bar {
-    width: 100%;
-    border-top: 3px dotted #333;
 }
 .history .history_contents ul {
     display: flex;
+    flex-wrap: wrap;
     margin-top: -11px;
 }
 .history .history_contents li {
     position: relative;
     width: 25%;
     font-size: 16px;
-    padding-top: 3em;
+    padding-top: 2.5em;
+    border-top: 3px dotted #333;
+
 }
 .history .history_contents li:before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
+    top: -10px; left: 0;
     width: 18px;
     height: 18px;
     box-sizing: border-box;
@@ -430,7 +485,10 @@ h2.title {
 }
 
 
-.tryto ul {display: flex;}
+.tryto ul {
+    display: flex;
+    flex-wrap: wrap;
+}
 .tryto ul li {
     width: 33.333%;
     text-align: center;
@@ -453,7 +511,7 @@ h2.title {
 .tryto ul li em{
     position: relative;
     display: block;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
     margin: 1.5em 0 2.5em;
 }
@@ -468,125 +526,173 @@ h2.title {
 }
 .tryto ul li p{
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.4;
     padding: 0 2.5em;
 }
 
 
 /* project 영역 */
-
+#project .container {width: 100%;}
+#project .row {padding: 0;}
 .project h2 {
     width: 1280px;
-    margin: 0 auto 1.5em;
+    margin: 0 auto 1em;
 }
-.project ul {
+.project .project_list {
     display: flex;
     flex-wrap: wrap;
+    transition: 0.4s;
+    transition-delay: 0.4s;
 }
-.project ul li {
+.project .project_list > div {
     position: relative;
-    width: 900px;
-    height: 658px;
-    margin: 0 3% 3%;
-    box-sizing: border-box;
-    transition: 0.3s;
+    width: 44%;
+    margin: 0 4% 4% 0;
 }
-.project ul li:nth-child(2),
-.project ul li:nth-child(4) {
-    margin-right: 0;
-    margin-left: 0;
-}
-.project ul li:nth-child(3) {
-    margin-left: 8%;
-}
-
-.project ul li .cover{
+.project .project_list > div:nth-child(3) {margin-left: 4%;}
+.project .cover{
+    position: absolute;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     background-color: #fbff47;
-    position: absolute;
-    top: 0; left: 0;
-    opacity: 1;
-    visibility: visible;
     transition: 0.2s;
     padding: 7%;
+    opacity: 1;
+    visibility: visible;
 }
-.project ul li:hover .cover {
+.project .project_list > div:hover .cover {
     opacity: 0;
     visibility: hidden;
 }
-.project ul li .cover h4 {
+.project .project_list > div:hover img {
+   transform: scale(0.95);
+}
+.project .project_list img {
+    transition: 0.3s;
+}
+.project .cover h4 {
     position: absolute;
-    bottom: 7%; left: 7%;
+    bottom: 8%; left: 7%;
     font-size: 70px;
     letter-spacing: -1px;
     font-weight: 600;
 }
-.project ul li .cover h4 .year {
+.project .cover h4 .year {
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
     vertical-align: text-top;
     margin-left: 0.6em;
 }
-.project ul li .cover .category {
+.project .cover .category {
     display: block;
     font-size: 24px;
     margin-bottom: 1em;
 }
-.project ul li .cover p {
+.project .cover p {
     font-size: 18px;
     line-height: 1.4;
 }
-.project ul li figure {
-    position: absolute;
-    top: 0; left: 0;
-    z-index: -100;
-    transition: 0.4s;
-}
-.project ul li:hover figure {
-    transform: scale(0.95);
-}
+
 
 /*  컨택트*/
-.contact .wating p {
-    font-size: 70px;
-    font-weight: 600;
+/*
+.contact .wating .bubble {
+    width: 100%;
+    height: 150px;
+    background-color: #fbff47;
+    border-radius: 30px;
+    position: relative;
 }
-.contact figure {
-    text-align: center;
-    margin: 150px 0;
-}
-.contact figure img {width: 600px;}
-.contact .infor ul {
-    display: flex;
-    justify-content: space-between;
-}
-.contact .infor ul li {position: relative;}
-.contact .infor ul li a {
-    display: block;
-    font-size: 36px;
-    font-weight: 400;
-    color: #333;
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.2em;
-}
-.contact .infor ul li:after {
+.contact .wating .bubble:after {
     content: "";
     position: absolute;
-    top: 15px; left: 30px;
-    width: 100%;
-    height: 40px;
-    background-color: #fbff47;
-    z-index: -20;
+    bottom: -60px; left: 50%;
+    transform: translateX(-50%);
+    border-width: 30px;
+    border-style: solid;
+    border-color: #fbff47 transparent transparent transparent;
+    margin-left: -5px;
 }
+*/
+.contact .wating p {
+font-size: 58px;
+font-weight: 600;
+line-height: 1.2;
+text-align: center;
+}
+
+.contact figure {
+    text-align: center;
+    margin: 100px 0 150px;
+    transition: 0.3s;
+}
+@keyframes wating {
+    /* 0%{
+        transform: translate(0, 0);
+    } */
+    10%{
+        transform: translate(-20px, -20px);
+    }
+    
+    20%{
+        transform: translate(0, 0);
+    }
+    30% {
+        transform: translate(20px, -20px);
+    }
+    40% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-20px, 20px);
+    }
+    60% {
+        transform: translate(0, 0);
+    }
+    70% {
+        transform: translate(20px, 20px);
+    }
+}
+.contact figure img {width: 70%;}
+
+.contact .infor ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.contact .infor ul li {
+    position: relative;
+    text-align: center;
+    z-index: 30;
+    
+}
+.contact .infor ul li a{
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+    color: #333;
+    padding: 0.8em 1.2em;
+    border-radius: 45px;
+    transition: 0.3s;
+}
+.contact .infor ul li:hover a{
+    background: #fbff47;
+}
+.contact .infor ul li .infor_icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
 .contact .infor .instagram {
     position: fixed;
     bottom: 30px; left: 30px;
-    font-size: 20px;
 }
 .contact .infor .instagram a {
     display: block;
+    font-size: 20px;
 }
 .contact .infor .copyright {
     position: fixed;
@@ -665,24 +771,320 @@ h2.title {
 
 /* 미디어쿼리 */
 @media (max-width: 1290px) {
-    .main .hello p br {display: block;}
+    .header h1 a {font-size: 18px;}
+    .main_content .main_view {padding-left: 5%;}
+    .main_view .hello p {font-size: 54px;}
+    .main_view .photo {right: 5%;}
+    .main_view .photo img {width: 500px;}
+    .main_view .photo .chatbubble {
+        width: 100px;
+        height: 40px;
+        padding: 11px;
+    }
+    .photo .chatbubble .dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+    .photo .chatbubble .welcome {font-size: 14px;}
+    .main_content .more_button {
+        width: 120px;
+        height: 120px;
+    }
+    .more_button .more {
+        font-size: 18px;
+        line-height: 120px;
+    }
+    .nav .gnb ul li a {font-size: 70px;}
+
+    .container {width: 100%;}
+    .row {padding: 0 24px;}
+    .contents_container {box-shadow: none;}
+
+    .about_me p:before {left: 0;}
+    .about_me p:after {right: 0;}
     
-    .hello .photo {top: 55%;}
-    .hello .photo.show {top: 45%;}
+    .project .cover h4{font-size: 48px;}
+    .project .cover h4 .year {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .project .cover .category {font-size: 18px;}
+    .project .cover p {font-size: 14px;}
+
 }
 @media (max-width: 1024px) {
 
+    #about {padding: 150px 0;}
+    #project {padding: 150px 0;}
+    #contact {padding: 150px 0;}
+    #footer {padding-bottom: 150px;}
 
+    .main_view .hello p {font-size: 48px;}
+    .main_view .photo img {width: 450px;}
+    
+
+    .contents_container {padding: 110px;}
+    .tryto ul li p {padding: 0 1em;}
+    .contact .infor .instagram a {font-size: 16px;}
+    .contact .infor .copyright {font-size: 14px;}
+
+    .main_content .more_button {
+        width: 100px;
+        height: 100px;
+    }
+    .more_button .more {
+        font-size: 16px;
+        line-height: 100px;
+    }
+
+    .about_me p:before,
+    .about_me p:after {
+        width: 25px;
+        height: 21px;
+    }
+
+    .project .cover h4{font-size: 38px;}
+    .project .cover .category {font-size: 15px;}
+    .project .cover p {font-size: 12px;}
+
+    #footer .thankyou p {font-size: 58px}
 }
 @media (max-width: 960px) {
+    h2.title {
+        font-size: 68px;
+        margin-bottom: 0.5em;
     }
+
+    .about .contents_container > div {margin-bottom: 100px;}
+    .contents_container {padding: 90px;}
+
+    .skill ul {font-size: 14px;}
+    .skill .skillbutton.active {
+        box-shadow: 0 0 10px 10px #fbff47
+    }
+    .tryto ul li em {font-size: 24px;}
+
+    .contact .wating p {font-size: 48px;}
+    .contact .infor ul li a {font-size: 22px;}
+
+}
 @media (max-width: 768px) {
 
+    .row {padding: 0 16px;}
 
+    .main_content .main_view {padding-top: 18%;}
+    .main_view .hello p br {display: block;}
+    .main_content .main_view .hello:before {
+        top: -15px;
+        font-size: 14px;
+    }
+    .main_view .photo .chatbubble {display: none;}
+    .main_view .photo.show {top: 55%;}
+    .main_view .photo {top: 65%;}
+    .main_view .photo img {width: 400px;}
+
+    .nav .gnb ul li a {
+        font-size: 54px;
+        text-shadow: 4px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+
+    .nav .menu_icon .ham .bar {width: 21px;}
+    .nav .menu_icon .ham .bar:nth-child(2), 
+    .nav .menu_icon .ham .bar:nth-child(3) {top: 6px;}
+    .nav .menu_icon .ham .bar:nth-child(4) {top: 13px;}
+
+    .main_content .more_button {left: 25%;}
+
+
+    .about .contents_container h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .about_me p {font-size: 15px;}
+    .about_me .memoji {
+        width: 150px;
+        height: 150px;
+    }
+    .contents_container {padding: 70px;}
+    .about_me p:before,
+    .about_me p:after {
+        width: 21px;
+        height: 16px;
+    }
+    .about_me p:before {left: -15px;}
+    .about_me p:after {right: -15px;}
+    .wrap {display: block;}
+    .wrap .like {
+        width: 100%;
+        margin-bottom: 100px;
+        padding-right: 0;
+    }
+
+    .wrap .skill {width: 100%;}
+    .skill ul li .skillbox {height: 4px;}
+    .history .history_contents li {font-size: 14px;}
+    .history .history_contents li:before {
+        width: 15px;
+        height: 15px;
+    }
+    .tryto ul li em {font-size: 20px;}
+    .tryto ul li .svgicon {
+        width: 55px;
+        height: 55px;
+    }
+    .tryto ul li .svgicon svg {
+        width: 30px;
+        height: 30px;
+    }
+    .tryto ul li em:after {bottom: -27px;}
+    .tryto ul li p {font-size: 14px;}
+
+    .history .history_contents li {border-width: 2px;}
+
+    #project .row {padding: 0 16px;}
+    .project h2 {width: 100%;}
+    .project .project_list > div {
+        width: 75%;
+        margin: 0 0 7% 0;
+    }
+    .project .project_list > div:nth-child(1),
+    .project .project_list > div:nth-child(3) {margin-left: 25%;}
+    .project .project_list > div:nth-child(5) {margin-bottom: 0;}
+
+    .contact .infor ul li a {font-size: 18px;}
+    .contact figure {margin-bottom: 100px;}
+
+    #footer .thankyou p {font-size: 42px;}
 }
 @media (max-width: 600px) {
+    #about {padding: 100px 0;}
+    #project {padding: 100px 0;}
+    #contact {padding: 100px 0;}
+    #footer {padding-bottom: 100px;}
+
+    .header {top: 20px; left: 20px;}
+    .nav .menu_icon {top: 20px; right: 20px;}
+    .main_view .hello p {font-size: 42px;}
+    .main_view .photo.show {top: 80%;}
+    .main_view .photo {top: 90%;}
+
+    .contact .infor .instagram {left: 20px; bottom: 20px;}
+    .contact .infor .instagram a {font-size: 14px;}
+    .contact .infor .copyright {right: 20px; bottom: 20px;}
+    .contact .infor .copyright {font-size: 12px;}
+
+    .contents_container {padding: 50px;}
+    .like ul li .like_svg svg {
+        width: 50px; 
+        height: 50px;
+    }
+
+    .history .history_contents li {width: 50%;}
+    .history .history_contents li:nth-child(1),
+    .history .history_contents li:nth-child(2) {
+        margin-bottom: 50px;
+    }
+    .tryto ul li {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .tryto ul li:last-child {margin-bottom: 0;}
+
+    .contact .wating p {font-size: 24px;}
+    .contact figure {margin: 60px 0;}
+    .contact .infor ul li a {
+        font-size: 18px;
+        padding: 0;
+    }
+    
 }
 @media (max-width: 480px) {
+    #main {padding-top: 70px;}
+    #about {padding: 50px 0;}
+    #project {padding: 50px 0;}
+    #contact {padding: 50px 0 80px;}
+    
+    .nav .gnb ul li a {font-size: 45px;}
+    .main_content .main_view {padding-left: 5%;}
+    .main_content .main_view .hello:before {
+        font-size: 10px;
+    }
+    .main_view .hello p {font-size: 38px;}
+    .main_view .photo img {width: 350px;}
+    .main_content .more_button {
+        left: 65%;
+        width: 80px;
+        height: 80px;
+    }
+    .more_button .more {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 80px;
+    }
+
+    h2.title {font-size: 48px;}
+    
+    .contents_container {padding: 30px;}
+    .about .contents_container > div {margin-bottom: 70px;}
+    .about .contents_container h3 {
+        font-size: 18px;
+        margin-bottom: 3em;
+    }
+    .about_me .memoji {
+        width: 120px;
+        height: 120px;
+    }
+    .about_me p {font-size: 12px;}
+    .about_me p:before, 
+    .about_me p:after {
+        width: 16px;
+        height: 13px;
+    }
+    .like ul li em {font-size: 12px;}
+    .skill ul {padding-left: 0;}
+    .skill ul li .legend,
+    .skill ul li .skillbox .rate {font-size: 12px;}
+    .skill ul li .skillbox {height: 3px;}
+
+    .skill .skillbutton {
+        width: 50px;
+        height: 50px;
+        left: 87%; top: 0;
+        font-size: 12px;
+        animation: none;
+    }
+    .skill ul li .skillbox {width: 60%;}
+    
+    .history .history_contents li {font-size: 12px;}
+    .tryto ul li em {font-size: 18px;}
+    .tryto ul li p {font-size: 12px;}
+
+    .project .project_list > div {
+        width: 100%;
+        margin-bottom: 4%;
+    }
+    .project .project_list > div:nth-child(1),
+    .project .project_list > div:nth-child(3) {margin-left: 0;}
+
+    .contact .infor ul li a {font-size: 14px;}
+    .contact .infor ul li .infor_icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .contact .infor ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    #footer .thankyou p {display: none;}
 }
-@media (max-width: 320px) {
+@media (max-width: 380px) {
+    .main_view .hello p {font-size: 34px;}
+    .main_view .photo img {width: 320px;}
+
+    .main_view .photo {top: 100%;}
+    .main_view .photo.show {top: 90%;}
+
+
+
 }
