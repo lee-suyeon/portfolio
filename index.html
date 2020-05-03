@@ -26,9 +26,9 @@
 
 
             <!-- 스크립트 -->
-            <script src="https://code.jquery.com/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
-            <script src="js/main.js"></script>
+            <!-- <script src="https://code.jquery.com/jquery.min.js"></script> -->
+            <!-- <script src="js/main.js"></script> -->
+            <script src="js/main2.js"></script>
 
             <!-- HTLM5shiv ie6~8 -->
             <!--[if lt IE 9]> 
@@ -37,17 +37,15 @@
                 alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
             </script>
             <![endif]-->
-
-
         </head>
+
         <body>
-
-
             <header id="header">
                 <div class="header">
                     <h1><a href="#" class="home">SSYYNN</a></h1>
+
                     <nav class="nav">
-                        <div class="menu_icon">
+                        <div class="ico-menu">
                             <h2 class="ir_so">전체메뉴</h2>
                             <a href="#" class="ham">
                                 <span class="bar"></span>
@@ -55,51 +53,37 @@
                                 <span class="bar"></span>
                                 <span class="bar"></span>
                             </a>
-                        </div> <!-- //menu_icon -->
+                        </div> <!-- //ico-menu -->
                         <div class="gnb">
-                            <div class="gnb_menu">
+                            <div class="menu">
                                 <ul>
-                                    <li><a href="#">HOME</a></li>
-                                    <li><a href="#">ABOUT</a></li>
-                                    <li><a href="#">PROJECT</a></li>
-                                    <li><a href="#">CONTACT</a></li>
+                                    <li><a href="#main">HOME</a></li>
+                                    <li><a href="#about">ABOUT</a></li>
+                                    <li><a href="#project">PROJECT</a></li>
+                                    <li><a href="#contact">CONTACT</a></li>
                                 </ul>
                             </div>
                         </div>  <!-- //gnb -->
                     </nav>
                 </div>  <!-- //header -->
             </header>
-
+            <!-- #header -->
 
             <section id="main">
-                <div class="main_content">
-                    <div class="main_view">
+                <div class="main">
+                    <div class="main-view">
                         <div class="hello">
                             <p>Hello! I’m Suyeon,<br> web-publisher.</p>
                             <p>This is my first<br> portfolio.</p>
                         </div>
                         <div class="photo">
-                            <figure>
-                                <figcaption class="ir_so">suyeon</figcaption>
-                                <img src="img/suyeon.png" alt="suyeon">
-                            </figure>
-                            <div class="chatbubble">
-                                <div class="dots">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="welcome">Welcome!</div>
-                            </div> <!-- //chatbubble-->
-                        </div>  <!-- //photo-->
-                    </div>  <!-- //main_view -->
-                    <a href="#">
-                        <div class="more_button">
-                            <strong class="more">more +</strong>
+                            <img src="img/suyeon.png" alt="suyeon">
                         </div>
-                    </a>
-                </div>  <!-- //main_content -->
+                    </div>  <!-- //main-view -->
+                    <a href="#" class="more-button">more +</a>
+                </div>  <!-- //main -->
             </section>
+            <!-- #main -->
 
             
             <section id="about">
@@ -107,25 +91,27 @@
                     <div class="row">
                         <div class="about">
                             <h2 class="title hide">About.</h2>
-                            <div class="contents_container hide showbox">
-                                <div class="about_me">
+                            <div class="contents-container cont-box">
+                                <div class="about-me">
                                     <h3>A LITTEL ABOUT ME</h3>
                                     <div class="memoji">
                                         <img src="img/memoji.png"  srcset="img/memoji@2.png" alt="memoji">
                                     </div>
                                     <p>
                                         안녕하세요. 신입 웹 퍼블리셔 이수연입니다. <br>
-                                        다양한 코딩 언어를 사용하여 웹 디자인을 구현하는 것에 흥미를 느꼈습니다.<br>
-                                        프로젝트에 참여 할 수 있는 기회를 기대하고 있습니다.
+                                        단순한 텍스트가 시각적으로 구현 되는것을 경험한 순간, 퍼블리싱에 흥미를 느끼게 되었습니다.<br>
+                                        좋은 공간에서 사람들이 머물고, 다양한 스토리가 생기는 것 처럼<br>
+                                        웹사이트를 방문한 사용자들에게 인상 깊고 양질의 컨텐츠를 제공하는<br>
+                                        좋은 프로젝트에 함께 참여하길 기대하고 있습니다. 
                                     </p>
-                                </div>  <!-- //about -->
+                                </div>  <!-- //about-me -->
 
                                 <div class="wrap">
                                     <div class="like">
                                         <h3>THINGS I LIKE</h3>
                                         <ul>
                                             <li>
-                                                <span class="like_svg">
+                                                <span class="like-svg">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                                                         <path d="M0 0h24v24H0V0z" fill="none"/>
                                                         <path d="M10.54 14.53L8.41 12.4l-1.06 1.06 3.18 3.18 6-6-1.06-1.06zm6.797-12.72l4.607 3.845-1.28 1.535-4.61-3.843zm-10.674 0l1.282 1.536L3.337 7.19l-1.28-1.536zM12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"/>
@@ -134,7 +120,7 @@
                                                 <em>MAKE A PLAN</em>
                                             </li>
                                             <li>
-                                                <span class="like_svg">
+                                                <span class="like-svg">
                                                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
                                                         <g><rect fill="none" height="24" width="24"/></g>
                                                         <g><g><path d="M19,9.3V4h-3v2.6L12,3L2,12h3v8h6v-6h2v6h6v-8h3L19,9.3z M17,18h-2v-6H9v6H7v-7.81l5-4.5l5,4.5V18z"/><path d="M10,10h4c0-1.1-0.9-2-2-2S10,8.9,10,10z"/></g></g>
@@ -143,7 +129,7 @@
                                                 <em>LIFE STYLE</em>
                                             </li>
                                             <li>
-                                                <span class="like_svg">
+                                                <span class="like-svg">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                                                         <path d="M0 0h24v24H0V0z" fill="none"/>
                                                         <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
@@ -160,29 +146,29 @@
                                         <ul>
                                             <li>
                                                 <div class="legend">HTML/CSS</div>
-                                                <div class="skillbox"  data-rate="80">
-                                                    <div class="bar"></div>
+                                                <div class="skillbox">
+                                                    <div class="skillbar" data-rate="80"></div>
                                                     <div class="rate">0%</div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="legend">JavaScript</div>
-                                                <div class="skillbox" data-rate="70">
-                                                    <div class="bar"></div>
+                                                <div class="skillbox">
+                                                    <div class="skillbar" data-rate="60"></div>
                                                     <div class="rate">0%</div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="legend">jQuery</div>
-                                                <div class="skillbox" data-rate="80">
-                                                    <div class="bar"></div>
+                                                <div class="skillbox">
+                                                    <div class="skillbar" data-rate="70"></div>
                                                     <div class="rate">0%</div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="legend">Ps/Ai</div>
-                                                <div class="skillbox" data-rate="90">
-                                                    <div class="bar"></div>
+                                                <div class="skillbox">
+                                                    <div class="skillbar" data-rate="90"></div>
                                                     <div class="rate">0%</div>
                                                 </div>
                                             </li>
@@ -192,7 +178,7 @@
 
                                 <div class="history">
                                     <h3>MY HISTORY</h3>
-                                    <div class="history_contents">
+                                    <div class="history-contents">
                                         <ul>
                                             <li>
                                                 <span class="year">2010 - 2014</span>
@@ -225,8 +211,8 @@
                                             </div>
                                             <em>Communication</em>
                                             <p>
-                                                제 생각을 명확히 말하고
-                                                전달합니다. 제 생각을 명확히 말하고 전달합니다.
+                                                프로젝트의 전반적인 업무를 이해하고 작업의 구상 및 우선순위를 정합니다. 
+                                                팀원들과의 원활한 소통을 위해 일의 진행 과정을 커뮤니케이션 합니다. 
                                             </p>
                                         </li>
                                         <li>
@@ -238,11 +224,8 @@
                                             </div>
                                             <em>Creativity</em>
                                             <p>
-                                                최신 트렌드
-                                                와 기술 변화를 
-                                                감지하고 습득하기 위해 학습합니다.
-                                                디자인을 가장 잘 구현하는 방법을 파악
-                                                새로운 언어와 기술을 배우는 데 매우 열심입니다.
+                                                최신 트렌드와 기술 변화에 적응하기 위해 새로운 기술에 접근하고 효과적으로 비주얼을 
+                                                구현해 내기 위해 다양한 레퍼런스를 참고합니다. 
                                             </p>
                                         </li>
                                         <li>
@@ -253,19 +236,18 @@
                                             </div>
                                             <em>Problem solving</em>
                                             <p>
-                                                적극적이고 다양한 방법으로
-                                                문제 해결 방법을 찾습니다.
-                                                고객과 의사 소통하고 아이디어를 파악
-                                                변화하는 환경에서 빠르게 조정할 수 있습니다
+                                                문제 해결에 정확한 해답은 없지만 모범사례의 적용, 다양한 방법을 통해 접근합니다.
+                                                스스로 부족한 부분에 대해서는 질문과 개인 공부를 통해 보완합니다.  
                                             </p>
                                         </li>
                                     </ul>
                                 </div>  <!-- //try to-->
-                            </div>  <!-- //contents_container -->
+                            </div>  <!-- //contents-container -->
                         </div>  <!-- //about -->
                     </div>  <!-- //row -->
                 </div>  <!-- // container -->
             </section>
+            <!-- //about -->
 
             
             <section id="project">
@@ -273,25 +255,8 @@
                     <div class="row">
                         <div class="project">
                             <h2 class="title hide">Project.</h2>
-                            <div class="project_list showbox hide">
+                            <div class="project-list hide cont-box">
                                 <div class="maxim">
-                                    <a href="https://sroovy.github.io/megabox/" target="blank">
-                                        <figure>
-                                            <figcaption class="ir_so">메가박스</figcaption>
-                                            <img src="img/maxim.jpg" alt="maximcoffee">
-                                        </figure>
-                                        <div class="cover">
-                                            <h4>MEGABOX<span class="year">2019</span></h4>
-                                            <span class="category">MOVIE WEBSITE</span>
-                                            <p>
-                                                디자인, 코딩<br>
-                                                제작기간 : 2주<br>
-                                                RESPONSIVE
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="megabox">
                                     <a href="https://sroovy.github.io/maxim/" target="blank">
                                         <figure>
                                             <figcaption class="ir_so">맥심커피</figcaption>
@@ -316,6 +281,23 @@
                                         </figure>
                                         <div class="cover">
                                             <h4>PARASITE<span class="year">2020</span></h4>
+                                            <span class="category">MOVIE WEBSITE</span>
+                                            <p>
+                                                디자인, 코딩<br>
+                                                제작기간 : 2주<br>
+                                                RESPONSIVE
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="megabox">
+                                    <a href="https://sroovy.github.io/megabox/" target="blank">
+                                        <figure>
+                                            <figcaption class="ir_so">메가박스</figcaption>
+                                            <img src="img/maxim.jpg" alt="maximcoffee">
+                                        </figure>
+                                        <div class="cover">
+                                            <h4>MEGABOX<span class="year">2019</span></h4>
                                             <span class="category">MOVIE WEBSITE</span>
                                             <p>
                                                 디자인, 코딩<br>
@@ -353,7 +335,7 @@
                     <div class="row">                  
                         <div class="contact">
                             <h2 class="title hide">Contact.</h2>
-                            <div class="contents_container hide showbox">
+                            <div class="contents-container cont-box">
                                 <div class="wating">
                                     <div class="bubble">
                                         <p>I'm waiting for your contact.</p>
@@ -368,26 +350,33 @@
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <div class="infor_icon">
+                                                <div class="infor-icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M22 4H2.01L2 20h20V4zm-2 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
                                                 </div>
                                                 <em>sroovy@naver.com</em>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="http://sroovy.tistory.com/" target="black">
+                                                <div class="infor-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"  height="24" viewBox="0 0 408.4 408.4" ><g><circle class="cls-1" cx="58.18" cy="58.18" r="58.18" fill="black"/><circle class="cls-1" cx="204.2" cy="58.18" r="58.18"/><circle class="cls-1" cx="204.2" cy="204.2" r="58.18" fill="black"/><circle class="cls-1" cx="204.2" cy="350.22" r="58.18" fill="black"/><circle class="cls-1" cx="350.22" cy="58.18" r="58.18"/></g></svg>
+                                                </div>
+                                                <em>TISTORY</em>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="#">
-                                                <div class="infor_icon">
+                                                <div class="infor-icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21 15.46l-5.27-.61-2.52 2.52c-2.83-1.44-5.15-3.75-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51z"/></svg>
                                                 </div>
                                                 <em>010-9939-6438</em>
                                             </a>
                                         </li>
                                     </ul>
-                                    <div class="copyright">&copy; 2020. SUYEON<br>All right reserved</div>
-                                    <div class="instagram"><a href="https://www.instagram.com/su_ynn_/" target="blank">instagram</a></div>
                                 </div>  <!-- //infor-->
-
-                            </div>  <!-- //contents_container-->
+                            </div>  <!-- //contents-container-->
+                            <div class="copyright">&copy; 2020. SUYEON<br>All right reserved</div>
+                            <div class="instagram"><a href="https://www.instagram.com/su_ynn_/" target="blank">instagram</a></div>
                         </div>  <!-- //contact-->
                     </div>  <!-- //row-->
                 </div>  <!-- //container-->

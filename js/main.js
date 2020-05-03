@@ -1,16 +1,16 @@
 $(function () {
 
     
-    //$("html,body").stop().animate({scrollTop: 0});
+    $("html,body").stop().animate({scrollTop: 0});
 
-    // home
+    //home
     $(".home").click(function (e) {
         e.preventDefault();
         $("html,body").stop().animate({scrollTop: 0});
     });
 
     
-    // menu button 
+    //menu button 
     var $menu = $(".nav .gnb");
     var $hamButton = $(".ham");
 
@@ -36,7 +36,7 @@ $(function () {
         $hamButton.removeClass("active");
     });
 
-       //scroll event
+    //   scroll event
 
    $(window).scroll(function () {
        var scrollTop = $(window).scrollTop();
