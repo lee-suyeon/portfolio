@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    document.documentElement.scrollTop = 0;
+    //document.documentElement.scrollTop = 0;
 
     //home click
     document.querySelector("h1").addEventListener("click", function (e) {
@@ -18,23 +18,17 @@ window.addEventListener("load", function () {
 
 
     var sectionCont = document.querySelectorAll("section");
-    
-    // 현재 내용물이 보이지 않는 상태임 
-    var visible = false;
-    if(visible){return;}
-    
+
     window.addEventListener("scroll", function () {
         var scrollTop = document.documentElement.scrollTop,
-            winBottom = scrollTop + window.innerHeight;
-
-        for(var i = 0; i < sectionCont.length; i++){
+        winBottom = scrollTop + window.innerHeight;
+        
+        for(let i = 0; i < sectionCont.length - 1; i++){
             var sectionBottom = sectionCont[i].offsetTop + sectionCont[i].offsetHeight;
-            if(winBottom >= sectionBottom + 400 && !visible){
+            if(winBottom >= sectionBottom + 400){
                 document.querySelectorAll("h2.title")[i].classList.remove("hide");
             }
         }
-        // console.log("winBottom",winBottom);
-        // console.log("sectionBottom", sectionBottom);
     });
 
 
@@ -63,47 +57,110 @@ window.addEventListener("load", function () {
     
     //skill button
     var skillBtn = document.querySelector(".skillbutton");
-    var prg = document.querySelectorAll(".skillbox .bar");
     var rate = document.querySelector(".rate");
+    var skillbar = document.getElementsByClassName("skillbar");
     
-    // 스킬 버튼을 누르면
-    // 각각의 bar의 rate 비율대로 
-    // 넓이가 늘어난다. 
-
+    
     skillBtn.addEventListener("click", function (e) {
-        debugger;
         e.preventDefault();
         this.classList.add("active");
         progress();
     });
         
-    var skillbar = document.getElementsByClassName("skillbar");
-    var rate = document.getElementsByClassName("rate");
-
-
+    
     var p = 0;
-
     function progress () {
-        //var skillBox = document.querySelector(".skillbox");
         if(p == 0){
             p = 1;    
-            var width = 1;
-            var counter = 1;
-            var id = setInterval(frame,100);
+            let width = 1;
+            let counter = 1;
+            let id = setInterval(frame,10);
             
             function frame () {
-                if (width >= skillbar[1].getAttribute("data-rate")){
-                    clearInterval(id);
-                    p = 0;
-                } else {
-                    width++;
-                    counter++;
-                    skillbar[1].style.width = width + "%";
-                    rate[1].innerHTML = counter + "%";
+                for(var h = 0; h < skillbar.length; h++){
+                    if (width >= skillbar[h].getAttribute("data-rate")){
+                        clearInterval(id);
+                        p = 0;
+                    } else {
+                        width++;
+                        counter++;
+                        skillbar[h].style.width = width + "%";
+                        rate[h].innerHTML = counter + "%";
+                    }
                 }
             }
         }
     }
+    
+    // var h = 0;
+
+    // function progress1 () {
+    //     //var skillBox = document.querySelector(".skillbox");
+    //     if(h == 0){
+    //         h = 1;    
+    //         let width = 1;
+    //         let counter = 1;
+    //         let id2 = setInterval(frame,10);
+            
+    //         function frame () {
+    //             if (width >= skillbar[1].getAttribute("data-rate")){
+    //                 clearInterval(id2);
+    //                 h = 0;
+    //             } else {
+    //                 width++;
+    //                 counter++;
+    //                 skillbar[1].style.width = width + "%";
+    //                 rate[1].innerHTML = counter + "%";
+    //             }
+    //         }
+    //     }
+    // }
+    // var o = 0;
+
+    // function progress2 () {
+    //     //var skillBox = document.querySelector(".skillbox");
+    //     if(o == 0){
+    //         o = 1;    
+    //         let width = 1;
+    //         let counter = 1;
+    //         let id3 = setInterval(frame,10);
+            
+    //         function frame () {
+    //             if (width >= skillbar[2].getAttribute("data-rate")){
+    //                 clearInterval(id3);
+    //                 o = 0;
+    //             } else {
+    //                 width++;
+    //                 counter++;
+    //                 skillbar[2].style.width = width + "%";
+    //                 rate[2].innerHTML = counter + "%";
+    //             }
+    //         }
+    //     }
+    // }
+    // var s = 0;
+
+    // function progress3 () {
+    //     //var skillBox = document.querySelector(".skillbox");
+    //     if(s == 0){
+    //         s = 1;    
+    //         let width = 1;
+    //         let counter = 1;
+    //         let id3 = setInterval(frame,10);
+            
+    //         function frame () {
+    //             if (width >= skillbar[3].getAttribute("data-rate")){
+    //                 clearInterval(id3);
+    //                 s = 0;
+    //             } else {
+    //                 width++;
+    //                 counter++;
+    //                 skillbar[3].style.width = width + "%";
+    //                 rate[3].innerHTML = counter + "%";
+    //             }
+    //         }
+    //     }
+    // }
     
     
     

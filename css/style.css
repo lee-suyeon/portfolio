@@ -6,11 +6,6 @@ body {
 }
 
 
-#about {padding: 200px 0;}
-#project {padding: 200px 0;}
-#contact {padding: 200px 0;}
-#footer {padding-bottom: 200px;}
-
 /* 공통 */
 .container {
     width: 1280px;
@@ -19,6 +14,7 @@ body {
 .contents-container {
     border: 1px solid #666;
     background-color: #fff;
+    font-size: 18px;
     box-shadow: 20px 20px #7f827c;
     padding: 130px;
     transition: 0.4s;
@@ -28,7 +24,7 @@ h2.title {
     position: relative;
     font-size: 80px;
     font-weight: 700;
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
     transition: 0.4s;
 }
 h2.hide, h2.hide + .cont-box {
@@ -239,6 +235,7 @@ h2.hide, h2.hide + .cont-box {
 
 
 /* about 영역 */
+#about {padding: 300px 0 0;}
 .about .contents-container > div {margin-bottom: 130px;}
 .about .contents-container > div:last-child {margin-bottom: 0;}
 .about .contents-container h3 {
@@ -248,17 +245,8 @@ h2.hide, h2.hide + .cont-box {
     margin-bottom: 4em;
     line-height: 1.2;
 }
-/* .about .contents-container h3:before {
-    content: "";
-    position: absolute;
-    top: 25px; left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right,  rgba(234,229,200,1) 0%, rgba(109,198,204,1) 100%);
-
-} */
-.about-me {text-align: center;}
-.about-me .memoji {
+.about .about-me {text-align: center;}
+.about .about-me .memoji {
     position: relative;
     width: 180px;
     height: 180px;
@@ -266,69 +254,64 @@ h2.hide, h2.hide + .cont-box {
     border-radius: 50%;
     margin: 0 auto;
 }
-.about-me .memoji img {
+.about .about-me .memoji img {
     display: block;
     position: absolute;
     top: 50%; left: 50%;
     width: 55%;
     transform: translate(-50%, -50%);
 }
-.about-me p {
+.about .about-me p {
     position: relative;
-    font-size: 18px;
     line-height: 1.6;
     margin-top: 3em;
 }
-.about-me p:before {
+.about .about-me p:before,
+.about .about-me p:after {
     content: "";
     position: absolute;
-    top: 0; left: -15px;
-    width: 34px;
+    width: 32px;
     height: 27px;
+}
+.about .about-me p:before {
+    top: 0; left: -15px;
     background: url(../img/db_quotes1.png) no-repeat center center /cover;
 }
-.about-me p:after {
-    content: "";
-    position: absolute;
+.about .about-me p:after {
     top: 4px; right: -15px;
-    width: 34px;
-    height: 27px;
     background: url(../img/db_quotes2.png) no-repeat center center / cover;
 }
-
-
-.wrap {display: flex;}
-.wrap .like {
+.about .wrap {display: flex;}
+.about .wrap .like {
     width: 45%;
     box-sizing: border-box;
     padding-right: 5%;
 }
-.like ul {
-    display: flex;
-    justify-content: space-between;
+.about .like ul {display: flex;}
+.about .like ul li {
+    width: 25%;
+    text-align: center;
+    margin-right: 8%;
 }
-.like ul li .like-svg {
+.about .like ul li .like-svg {
     display: block;
     text-align: center;
 }
-.like ul li .like-svg svg {
+.about .like ul li .like-svg svg {
     width: 60px;
     height: 60px;
 }
-.like ul li em {
+.about .like ul li em {
     display: block;
-    font-size: 14px;
     text-align: center;
     line-height: 1.2;
     margin-top: 1.2em;
 }
-
-
-.skill {
+.about .skill {
     position: relative;
     width: 55%;
 }
-.skill .skillbutton{
+.about .skill .skillbutton{
     position: absolute;
     top: 54%; left: 5%;
     width: 65px; 
@@ -349,19 +332,17 @@ h2.hide, h2.hide + .cont-box {
   80% {transform: scale( .9 );}
   100% {transform: scale( .9 );}
 }
-
-.skill .skillbutton.active {
+.about .skill .skillbutton.active {
     box-shadow: 0 0 15px 15px #fbff47;
     animation: none;
 }
-.skill ul {padding-left: 25%;}
-.skill ul li {margin-bottom: 1.2em;}
-.skill ul li .legend {
+.about .skill ul {padding-left: 25%;}
+.about .skill ul li {margin-bottom: 1.2em;}
+.about .skill ul li .legend {
     display: inline-block;
     width: 30%;
-    font-size: 16px;
 }
-.skill ul li .skillbox {
+.about .skill ul li .skillbox {
     display: inline-block;
     position: relative;
     width: 55%;
@@ -369,31 +350,29 @@ h2.hide, h2.hide + .cont-box {
     background-color: #acacac;
     margin-bottom: 4px;
 }
-.skill ul li .skillbox .skillbar {
+.about .skill ul li .skillbox .skillbar {
     position: absolute;
     top: 0; left: 0; bottom: 0;
     width: 0%;
     background-color: #fbff47;
 }
-.skill ul li .skillbox .rate {
+.about .skill ul li .skillbox .rate {
     position: absolute;
     top: -3px; right: -35px;
     font-size: 14px;
 }
-.history .history-contents ul {
+.about .history .history-contents ul {
     display: flex;
     flex-wrap: wrap;
     margin-top: -11px;
 }
-.history .history-contents li {
+.about .history .history-contents li {
     position: relative;
     width: 25%;
-    font-size: 16px;
     padding-top: 2.5em;
     border-top: 3px dotted #333;
-
 }
-.history .history-contents li:before {
+.about .history .history-contents li:before {
     content: "";
     position: absolute;
     top: -10px; left: 0;
@@ -404,7 +383,7 @@ h2.hide, h2.hide + .cont-box {
     background-color: #fbff47;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
-.history .history-contents li .year {
+.about .history .history-contents li .year {
     display: block;
     font-weight: 600;
     margin-bottom: 0.5em;
@@ -413,17 +392,15 @@ h2.hide, h2.hide + .cont-box {
     display: block;
     line-height: 1.5;
 }
-
-
-.tryto ul {
+.about .tryto ul {
     display: flex;
     flex-wrap: wrap;
 }
-.tryto ul li {
+.about .tryto ul li {
     width: 33.333%;
     text-align: center;
 }
-.tryto ul li .svgicon{
+.about .tryto ul li .svgicon{
     position: relative;
     width: 70px;
     height: 70px;
@@ -431,21 +408,21 @@ h2.hide, h2.hide + .cont-box {
     background-color: #fbff47;
     margin: 0 auto;
 }
-.tryto ul li .svgicon svg {
+.about .tryto ul li .svgicon svg {
     position: absolute;
     top: 50%; left: 50%;
     width: 40px;
     height: 40px;
     transform: translate(-50%, -50%);
 }
-.tryto ul li em{
+.about .tryto ul li em{
     position: relative;
     display: block;
     font-size: 28px;
     font-weight: 600;
     margin: 1.5em 0 2.5em;
 }
-.tryto ul li em:after {
+.about .tryto ul li em:after {
     content: "";
     position: absolute;
     bottom: -35px; left: 50%;
@@ -454,19 +431,19 @@ h2.hide, h2.hide + .cont-box {
     background: #333;
     transform: translateX(-50%);
 }
-.tryto ul li p{
-    font-size: 16px;
-    line-height: 1.4;
+.about .tryto ul li p{
+    line-height: 1.5;
     padding: 0 2.5em;
 }
 
 
 /* project 영역 */
+#project {padding: 300px 0 0;}
 #project .container {width: 100%;}
 #project .row {padding: 0;}
 .project h2 {
     width: 1280px;
-    margin: 0 auto 1em;
+    margin: 0 auto 0.7em;
 }
 .project .project-list {
     display: flex;
@@ -526,67 +503,20 @@ h2.hide, h2.hide + .cont-box {
 }
 
 
-/*  컨택트*/
-/*
-.contact .wating .bubble {
-    width: 100%;
-    height: 150px;
-    background-color: #fbff47;
-    border-radius: 30px;
-    position: relative;
-}
-.contact .wating .bubble:after {
-    content: "";
-    position: absolute;
-    bottom: -60px; left: 50%;
-    transform: translateX(-50%);
-    border-width: 30px;
-    border-style: solid;
-    border-color: #fbff47 transparent transparent transparent;
-    margin-left: -5px;
-}
-*/
+/*  contact */
+#contact {padding: 200px 0;}
 .contact .wating p {
-font-size: 58px;
-font-weight: 600;
-line-height: 1.2;
-text-align: center;
+    font-size: 58px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
 }
-
-.contact figure {
+.contact .wating .photo {
     text-align: center;
     margin: 100px 0 150px;
     transition: 0.3s;
 }
-@keyframes wating {
-    /* 0%{
-        transform: translate(0, 0);
-    } */
-    10%{
-        transform: translate(-20px, -20px);
-    }
-    
-    20%{
-        transform: translate(0, 0);
-    }
-    30% {
-        transform: translate(20px, -20px);
-    }
-    40% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(-20px, 20px);
-    }
-    60% {
-        transform: translate(0, 0);
-    }
-    70% {
-        transform: translate(20px, 20px);
-    }
-}
-
-.contact figure img {
+.contact .wating .photo img {
     width: 70%;
     animation: hue 3s infinite alternate;
 }
@@ -602,27 +532,25 @@ text-align: center;
 .contact .infor ul li {
     position: relative;
     text-align: center;
+    margin-bottom: 20px;
     cursor: pointer;
     z-index: 30;
 }
 .contact .infor ul li a{
-    display: block;
+    display: inline-block;
     font-size: 26px;
     font-weight: 400;
     color: #333;
-    padding: 0.8em 1.2em;
     border-radius: 45px;
+    padding: 0.3em 0.5em;
     transition: 0.3s;
 }
-.contact .infor ul li:hover a{
-    background: #fbff47;
-}
+.contact .infor ul li:hover a{background: #fbff47;}
 .contact .infor ul li .infor-icon {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
 }
-
 .contact .instagram {
     position: fixed;
     bottom: 30px; left: 30px;
@@ -639,6 +567,7 @@ text-align: center;
 
 
 /* footer */
+#footer {padding-bottom: 200px;}
 #footer .thankyou .heart {
     position: relative;
     width: 100px;
@@ -655,31 +584,14 @@ text-align: center;
     width: 50px;
     height: 80px;
     background: #fbff47;
-    -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
-    -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: 0 100%;
-       -moz-transform-origin: 0 100%;
-        -ms-transform-origin: 0 100%;
-         -o-transform-origin: 0 100%;
-            transform-origin: 0 100%;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
 }
 #footer .thankyou .heart:after {
     left: 0;
-    -webkit-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transform-origin: 100% 100%;
-       -moz-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-         -o-transform-origin: 100% 100%;
-            transform-origin :100% 100%;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
 }
 
 
@@ -692,7 +604,6 @@ text-align: center;
   80% {transform: scale( .75 );}
   100% {transform: scale( .75 );}
 }
-
 #footer .thankyou p {
     font-size: 72px;
     font-weight: 400;
@@ -705,6 +616,10 @@ text-align: center;
 
 /* 미디어쿼리 */
 @media (max-width: 1290px) {
+
+    .container {width: 100%;}
+    .row {padding: 0 24px;}
+    .contents-container {box-shadow: none;}
 
     .header h1 a {font-size: 18px;}
     .nav .ico-menu .ham .bar {
@@ -724,16 +639,12 @@ text-align: center;
         line-height: 120px;
     }
     .main .more-button:hover {box-shadow: 0 0 20px 20px #fbff47;}
-
-
-
-    .container {width: 100%;}
-    .row {padding: 0 24px;}
-    .contents-container {box-shadow: none;}
-
-    .about-me p:before {left: 0;}
-    .about-me p:after {right: 0;}
     
+    .project h2 {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 16px;
+    }
     .project .cover h4{font-size: 48px;}
     .project .cover h4 .year {
         font-size: 12px;
@@ -747,8 +658,8 @@ text-align: center;
 }
 @media (max-width: 1024px) {
 
-    #about {padding: 150px 0;}
-    #project {padding: 150px 0;}
+    #about {padding: 200px 0 0;}
+    #project {padding: 200px 0 0;}
     #contact {padding: 150px 0;}
     #footer {padding-bottom: 150px;}
 
@@ -763,49 +674,49 @@ text-align: center;
         font-size: 16px;
         line-height: 100px;
     }
-    
 
-
-    .tryto ul li p {padding: 0 1em;}
-
-
-
-    .about-me p:before,
-    .about-me p:after {
+    .about .about-me p:before,
+    .about .about-me p:after {
         width: 25px;
         height: 21px;
     }
+    .about .tryto ul li p {padding: 0 1em;}
 
     .project .cover h4{font-size: 38px;}
     .project .cover .category {font-size: 15px;}
     .project .cover p {font-size: 12px;}
 
+    .contact .wating .photo {margin-bottom: 100px;}
+    .contact .infor ul {display: block;}
+
     #footer .thankyou p {font-size: 58px}
 }
 @media (max-width: 960px) {
+
+    .contents-container {
+        font-size: 15px;
+        padding: 90px;
+    }
+
     .main .main-view {left: 5%;}
     .main-view .photo {right: 5%;}
-    h2.title {
-        font-size: 68px;
-        margin-bottom: 0.5em;
-    }
+    h2.title {font-size: 68px;}
 
     .about .contents-container > div {margin-bottom: 100px;}
-    .contents-container {padding: 90px;}
-
-    .skill ul {font-size: 14px;}
-    .skill .skillbutton.active {
-        box-shadow: 0 0 10px 10px #fbff47
+    .about .like ul li .like-svg svg {
+        width: 50px;
+        height: 50px;
     }
-    .tryto ul li em {font-size: 24px;}
+    .about .skill .skillbutton.active {box-shadow: 0 0 10px 10px #fbff47}
+    .about .tryto ul li em {font-size: 22px;}
 
     .contact .wating p {font-size: 48px;}
     .contact .infor ul li a {font-size: 22px;}
 
-}
 @media (max-width: 768px) {
 
     .row {padding: 0 16px;}
+    .contents-container {padding: 70px;}
 
     .header {top: 15px; left: 15px;}
     .header h1 a {font-size: 15px;}
@@ -816,9 +727,8 @@ text-align: center;
         top: -12px;
         font-size: 9px;
     }
-    .nav .gnb .menu ul li {
-        font-size: 58px;
-    }
+    .nav .gnb .menu ul li {font-size: 58px;}
+    .nav .gnb .menu ul li a {-webkit-text-stroke: .6px rgba(0, 0, 0, 1);}
     .main .more-button {
         width: 80px;
         height: 80px;
@@ -826,61 +736,56 @@ text-align: center;
         line-height: 80px;
     }
 
-    
     .about .contents-container h3 {
         font-size: 20px;
         text-align: center;
     }
-    .about-me p {font-size: 15px;}
-    .about-me .memoji {
+    .about .about-me .memoji {
         width: 150px;
         height: 150px;
     }
-    .contents-container {padding: 70px;}
-    .about-me p:before,
-    .about-me p:after {
-        width: 21px;
+    .about .about-me p:before,
+    .about .about-me p:after {
+        width: 19px;
         height: 16px;
     }
-    .about-me p:before {left: -15px;}
-    .about-me p:after {right: -15px;}
-    .wrap {display: block;}
-    .wrap .like {
+    .about .wrap {display: block;}
+    .about .wrap .like {
         width: 100%;
         margin-bottom: 100px;
         padding-right: 0;
     }
-
-    .wrap .skill {width: 100%;}
-    .skill ul li .skillbox {height: 4px;}
-    .history .history-contents li {font-size: 14px;}
-    .history .history-contents li:before {
+    .about .like ul li {
+        width: 33.3333%;
+        margin-right: 0;
+    } 
+    .about .wrap .skill {width: 100%;}
+    .about .skill ul li .skillbox {height: 4px;}
+    .about .history .history-contents li {border-width: 2px;}
+    .about .history .history-contents li:before {
         width: 15px;
         height: 15px;
     }
-    .tryto ul li em {font-size: 20px;}
-    .tryto ul li .svgicon {
+    .about .tryto ul li em {font-size: 20px;}
+    .about .tryto ul li .svgicon {
         width: 55px;
         height: 55px;
     }
-    .tryto ul li .svgicon svg {
+    .about .tryto ul li .svgicon svg {
         width: 30px;
         height: 30px;
     }
-    .tryto ul li em:after {bottom: -27px;}
-    .tryto ul li p {font-size: 14px;}
+    .about .tryto ul li em:after {bottom: -27px;}
 
-    .history .history-contents li {border-width: 2px;}
 
     #project .row {padding: 0 16px;}
-    .project h2 {width: 100%;}
     .project .project-list > div {
         width: 75%;
         margin: 0 0 7% 0;
     }
-    .project .project-list > div:nth-child(1),
-    .project .project-list > div:nth-child(3) {margin-left: 25%;}
-    .project .project-list > div:nth-child(5) {margin-bottom: 0;}
+    .project .project-list > div:nth-child(2),
+    .project .project-list > div:nth-child(4) {margin-left: 25%;}
+    .project .project-list > div:nth-child(3) {margin-left: 0;}
 
     .contact .infor ul li a {font-size: 18px;}
     .contact figure {margin-bottom: 100px;}
@@ -898,17 +803,18 @@ text-align: center;
     #footer .thankyou p {font-size: 42px;}
 }
 @media (max-width: 600px) {
-    #about {padding: 100px 0;}
-    #project {padding: 100px 0;}
+
+    
+    #about {padding: 150px 0 0;}
+    #project {padding: 150px 0 0;}
     #contact {padding: 100px 0;}
     #footer {padding-bottom: 100px;}
+    .contents-container {
+        font-size: 13px;
+        padding: 50px;
+    }
+    h2.title {font-size: 48px;}
 
-    /* .main .more-button {
-        width: 65px;
-        height: 65px;
-        font-size: 10px;
-        line-height: 65px;
-    } */
     .main .main-view {top: 20%;}
     .main-view .hello p br {display: block;}
     .main-view .photo {
@@ -916,86 +822,75 @@ text-align: center;
         width: 60%;
     }
     
-
-
-    .contents-container {padding: 50px;}
-    .like ul li .like-svg svg {
+    .about .like ul li .like-svg svg {
         width: 50px; 
         height: 50px;
     }
-
-    .history .history-contents li {width: 50%;}
-    .history .history-contents li:nth-child(1),
-    .history .history-contents li:nth-child(2) {
-        margin-bottom: 50px;
-    }
-    .tryto ul li {
+    .about .skill ul li .skillbox .rate {font-size: 11px;}
+    .about .history .history-contents li {width: 50%;}
+    .about .history .history-contents li:nth-child(1),
+    .about .history .history-contents li:nth-child(2) {margin-bottom: 50px;}
+    .about .tryto ul li {
         width: 100%;
         margin-bottom: 50px;
     }
-    .tryto ul li:last-child {margin-bottom: 0;}
+    .about .tryto ul li:last-child {margin-bottom: 0;}
 
     .contact .wating p {font-size: 24px;}
+    .contact .wating .photo {margin: 50px 0;}
     .contact figure {margin: 60px 0;}
     .contact .infor ul li a {
         font-size: 18px;
         padding: 0;
     }
-    
 }
 @media (max-width: 480px) {
     #main {padding-top: 70px;}
-    #about {padding: 50px 0;}
-    #project {padding: 50px 0;}
-    #contact {padding: 50px 0 80px;}
+    #about {padding: 100px 0 0;}
+    #project {padding: 100px 0 0;}
+    #contact {padding: 80px 0;}
+    #footer {padding-bottom: 80px;}
+    
+    .row,
+    #project .row {padding: 0 8px;}
+    .contents-container {padding: 50px 30px;}
     
     .main .more-button{bottom: 18%; left: 18%;}
     .main-view .photo {width: 70%;}
 
-    h2.title {font-size: 48px;}
-    
-    .contents-container {padding: 30px;}
     .about .contents-container > div {margin-bottom: 70px;}
-    .about .contents-container h3 {
-        font-size: 18px;
-        margin-bottom: 3em;
-    }
-    .about-me .memoji {
+    .about .contents-container h3 {font-size: 16px;}
+    .about .about-me .memoji {
         width: 120px;
         height: 120px;
     }
-    .about-me p {font-size: 12px;}
-    .about-me p:before, 
-    .about-me p:after {
-        width: 16px;
-        height: 13px;
+    .about .about-me p:before, 
+    .about .about-me p:after {
+        display: none;
     }
-    .like ul li em {font-size: 12px;}
-    .skill ul {padding-left: 0;}
-    .skill ul li .legend,
-    .skill ul li .skillbox .rate {font-size: 12px;}
-    .skill ul li .skillbox {height: 3px;}
-
-    .skill .skillbutton {
+    .about .like ul li .like-svg svg {
+        width: 40px;
+        height: 40px;
+    }
+    .about .skill ul {padding-left: 0;}
+    .about .skill ul li .skillbox {height: 3px;}
+    .about .skill .skillbutton {
         width: 50px;
         height: 50px;
         left: 87%; top: 0;
         font-size: 12px;
         animation: none;
     }
-    .skill ul li .skillbox {width: 60%;}
+    .about .skill ul li .skillbox {width: 60%;}
+    .about .tryto ul li em {font-size: 18px;}
     
-    .history .history-contents li {font-size: 12px;}
-    .tryto ul li em {font-size: 18px;}
-    .tryto ul li p {font-size: 12px;}
-
+    .project h2 {padding: 0;}
     .project .project-list > div {
         width: 100%;
-        margin-bottom: 4%;
+        margin-bottom: 2%;
     }
-    .project .project-list > div:nth-child(1),
-    .project .project-list > div:nth-child(3) {margin-left: 0;}
-
+    .project .project-list > div:nth-child(2),
+    .project .project-list > div:nth-child(4) {margin-left: 0;}
     .contact .infor ul li a {font-size: 14px;}
     .contact .infor ul li .infor-icon svg {
         width: 16px;
@@ -1015,5 +910,4 @@ text-align: center;
     }
     .main .more-button {left: 50%;}
     .nav .gnb .menu ul li {font-size: 45px;}
-
 }
