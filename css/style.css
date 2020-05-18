@@ -112,12 +112,13 @@ h2.hide, h2.hide + .cont-box {
     font-weight: 700;
     letter-spacing: 5px;
     transition: 0.3s;
+    color: rgba(109,198,204,1);
     -webkit-font-smoothing : antialiased;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: .9px rgba(0, 0, 0, 1);
 }
 .nav .gnb .menu ul li:hover a {
-    -webkit-text-fill-color:  rgb(133, 215, 221);
+    -webkit-text-fill-color:  rgb(255, 255, 255);
     text-shadow: 6px 6px rgba(0, 0, 0, 0.7);
 }
 
@@ -514,7 +515,7 @@ h2.hide, h2.hide + .cont-box {
 .contact .wating .photo {
     text-align: center;
     margin: 100px 0 150px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .contact .wating .photo img {
     width: 70%;
@@ -541,15 +542,44 @@ h2.hide, h2.hide + .cont-box {
     font-size: 26px;
     font-weight: 400;
     color: #333;
-    border-radius: 45px;
     padding: 0.3em 0.5em;
-    transition: 0.3s;
+    border-bottom: 3px dotted #333;
 }
-.contact .infor ul li:hover a{background: #fbff47;}
+/* .contact .infor ul li:hover a{background: #fbff47;} */
 .contact .infor ul li .infor-icon {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
+}
+.contact .infor ul li a span.tooltip {
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fbff47;
+    padding: 0.5em;
+    width: 60%;
+    border-radius: 20px;
+    font-size: 18px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: 0.3s;
+}
+.contact .infor ul li a span.tooltip:after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fbff47 transparent transparent transparent;
+}
+.contact .infor ul li a em.show + span.tooltip {
+    opacity: 1; 
+    visibility: visible;
 }
 .contact .instagram {
     position: fixed;

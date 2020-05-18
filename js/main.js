@@ -1,99 +1,123 @@
-$(function () {
-
+window.addEventListener("load", function () {
     
-    $("html,body").stop().animate({scrollTop: 0});
+    function goToHome () {
+        document.documentElement.scrollTop = 0;
+    };
 
-    //home
-    $(".home").click(function (e) {
+    //home click
+    document.querySelector("h1").addEventListener("click", function (e) {
         e.preventDefault();
-        $("html,body").stop().animate({scrollTop: 0});
+        goToHome();
     });
 
-    
-    //menu button 
-    var $menu = $(".nav .gnb");
-    var $hamButton = $(".ham");
+    // main animation 
+    document.querySelector(".main-view").classList.add("show");
 
-    $hamButton.click(function (e) {
+    // more button
+    document.querySelector(".more-button").addEventListener("click", function (e) {
         e.preventDefault();
-        $(this).toggleClass("active");
-        $menu.toggleClass("open");
+        document.documentElement.scrollTop = sectionCont[1].offsetTop;
+    })
+
+    // scroll event
+    var sectionCont = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", function () {
+        var scrollTop = document.documentElement.scrollTop,
+        winBottom = scrollTop + window.innerHeight;
+        
+        for(let i = 0; i < sectionCont.length - 1; i++){
+            var sectionBottom = sectionCont[i].offsetTop + sectionCont[i].offsetHeight;
+            if(winBottom >= sectionBottom + 400){
+                document.querySelectorAll("h2.title")[i].classList.remove("hide");
+            }
+        }
     });
 
-    // gnb 
-    var $navButton = $(".gnb ul li");
-    var $contents = $("section");
+
+    // nav button
+    var navBtn = document.querySelector(".ico-menu");
     
-    $navButton.click(function (e) {
+    navBtn.addEventListener("click",function (e) {
         e.preventDefault();
-
-        var idx = $(this).index();
-        var section = $contents.eq(idx);
-        var sectionDistance = section.offset().top;
-
-        $("html,body").stop().animate({scrollTop:sectionDistance}, 200);
-        $menu.removeClass("open");
-        $hamButton.removeClass("active");
+        this.classList.toggle("active");
     });
 
-    //   scroll event
-
-   $(window).scroll(function () {
-       var scrollTop = $(window).scrollTop();
-       $contents.each(function () {
-           if($(this).offset().top - 400 <= scrollTop){
-               $(this).find(".hide").addClass("show");
-           };
-       });
-   });
-
-    // photo
-    var $photo = $(".photo");
-    $photo.addClass("show");
-    $(".more_button").addClass("show");
-
-    $photo.find(".chatbubble").click(function () {
-        $(".dots").hide();
-        $(this).find(".welcome").show();
-   });
-
-   //scroll button
-   var aboutPos = $("#about").offset().top;
-
-   $(".more_button").click(function (e) {
-       e.preventDefault();
-        $("html,body").stop().animate({scrollTop:aboutPos});
-   });
-
-
-
-
-   
-
-
-   // ---------------------about--------------------
-  
-
-
-   // skill button
-   $(".skillbutton").one("click", function () {
-       $(this).addClass("active").css({animation:"none"});
-
-       $(".skillbox").each(function () {
-            var progressRate = $(this).attr("data-rate"),
-                progressText = $(this).find(".rate");
-
-            $(this).find(".bar").animate({width: progressRate + "%"},1000);
-
-            $({rate:0}).animate({rate:progressRate},{
-                duration: 1000,
-                progress: function () {
-                    var now = this.rate;
-                    progressText.text(Math.ceil(now) + "%");
-                }
-            });
+    // menu button
+    var menuBtn = document.querySelectorAll(".gnb ul li");
+    
+    for(let j = 0; j < menuBtn.length; j++){
+        menuBtn[j].addEventListener("click", function (e) {
+            e.preventDefault();
+            moveToPage(j);
+            navBtn.classList.remove("active");
         });
-    }); //click event
+    }
+    function moveToPage (idx) {
+        var sectionPos = sectionCont[idx].offsetTop;
+        document.documentElement.scrollTop = sectionPos;
+    }
+    
+    //skill button
+    var skillBtn = document.querySelector(".skillbutton");
+    var skillBox = document.querySelectorAll(".skillbox");
+    
+    var time = 600;
+    
+    skillBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        this.classList.add("active");
+
+        skillBox.forEach(function (i) {
+            
+            var skill = i.children[0],
+                rate = i.children[1];
+            var count = 0;
+            var dataCount = skill.getAttribute("data-rate");
+            var runTime = time / dataCount;
+
+            setInterval(function () {
+                if(count < dataCount){
+                    count++;
+                    rate.innerHTML = count + "%";
+                    skill.style.width = count + "%";
+                }
+            }, runTime)  
+        })
+    });
 
 
-}); 
+    //copy event 
+    var inforCopy = document.querySelectorAll(".copy");
+
+    for(var c = 0; c < inforCopy.length; c++){
+        inforCopy[c].addEventListener("click", function (e) {
+            e.preventDefault();
+            
+            var infor = this.innerHTML;
+           
+            var tempElem = document.createElement('textarea');
+            tempElem.value = infor; 
+            document.body.appendChild(tempElem);
+
+            tempElem.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempElem);
+
+            this.nextElementSibling.innerText = "Copied!"
+        });
+    }
+
+    // hover event
+    for(var t = 0; t < inforCopy.length; t++){
+        inforCopy[t].addEventListener("mouseenter", function () {           
+            this.classList.add("show");
+            this.nextElementSibling.innerText = "Click to Copy!"
+        });
+
+        inforCopy[t].addEventListener("mouseleave", function () {
+            this.classList.remove("show");
+        });
+    }
+    
+});
