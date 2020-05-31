@@ -722,15 +722,22 @@ h2.hide, h2.hide + .cont-box {
     #footer .thankyou p {font-size: 58px}
 }
 @media (max-width: 960px) {
-
+    #main {height: auto;}
+    .main .main-view{
+        position: relative;
+        left: 0;
+        margin-top: 200px;
+        padding: 0 0 150px 50px;
+    }
+    
     .contents-container {
         font-size: 15px;
         padding: 90px;
     }
 
-    .main .main-view {left: 5%;}
     .main-view .photo {right: 5%;}
     h2.title {font-size: 68px;}
+    .main .more-button {bottom: -30%;}
 
     .about .contents-container > div {margin-bottom: 100px;}
     .about .like ul li .like-svg svg {
@@ -753,6 +760,10 @@ h2.hide, h2.hide + .cont-box {
     .nav .ico-menu {top: 18px; right: 15px;}
 
     .main-view .hello p {font-size: 34px;}
+    .main .main-view {
+        margin-top: 150px;
+        padding-bottom: 100px;
+    }
     .main .main-view .hello:before {
         top: -12px;
         font-size: 9px;
@@ -844,11 +855,10 @@ h2.hide, h2.hide + .cont-box {
     }
     h2.title {font-size: 48px;}
 
-    .main .main-view {top: 20%;}
+    .main-view .hello p {font-size: 28px;}
     .main-view .hello p br {display: block;}
     .main-view .photo {
-        top: 80%;
-        width: 60%;
+        width: 50%;
     }
     
     .about .like ul li .like-svg svg {
@@ -883,8 +893,13 @@ h2.hide, h2.hide + .cont-box {
     #project .row {padding: 0 8px;}
     .contents-container {padding: 50px 30px;}
     
-    .main .more-button{bottom: 18%; left: 18%;}
-    .main-view .photo {width: 70%;}
+    .main .main-view {
+        margin-top: 120px;
+        padding-bottom: 180px;
+    }
+    .main .main-view .hello {width: 65%;}
+    .main-view .photo {top: 40%; right: 10%;}
+    .main .more-button {bottom: -5%;}
 
     .about .contents-container > div {margin-bottom: 70px;}
     .about .contents-container h3 {font-size: 16px;}
@@ -931,11 +946,8 @@ h2.hide, h2.hide + .cont-box {
     #footer .thankyou p {display: none;}
 }
 @media (max-width: 380px) {
-    .main-view .hello p {font-size: 32px;}
-    .main-view .photo {
-        top: 95%;
-        width: 80%;
-    }
+    .main .main-view .hello {width: 85%;}
+    .main-view .photo {width: 65%;}
     .main .more-button {left: 50%;}
     .nav .gnb .menu ul li {font-size: 45px;}
 }
