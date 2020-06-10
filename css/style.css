@@ -1,0 +1,941 @@
+@charset "utf-8";
+html {scroll-behavior: smooth;}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(135deg, rgba(234,229,200,1) 50%, rgba(109,198,204,1) 100%);
+}
+
+
+/* 공통 */
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+.contents-container {
+    border: 1px solid #666;
+    background-color: #fff;
+    font-size: 18px;
+    box-shadow: 20px 20px #7f827c;
+    padding: 130px;
+    transition: 0.4s;
+    transition-delay: 0.4s;
+}
+h2.title {
+    position: relative;
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    transition: 0.4s;
+}
+h2.hide, h2.hide + .cont-box {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+}
+
+
+/* 헤더영역 */
+#header {
+    position: relative;
+    z-index: 100;
+}
+.header {
+    position: fixed;
+    top: 30px; left: 30px;
+}
+.header h1 a {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* nav 영역 */
+.nav .ico-menu {
+    position: fixed;
+    top: 24px; right: 30px;
+    z-index: 9999;
+}
+.nav .ico-menu .ham {
+    display: block;
+    position: relative;
+    width: 35px;
+    height: 31px;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+}
+.nav .ico-menu .ham .bar {
+    position: absolute;
+    top: 0; 
+    height: 3px;
+    width: 30px;
+    background-color: #333;
+    transition: 0.2s;
+}
+.nav .ico-menu .ham .bar:nth-child(1) {top: 0;}
+.nav .ico-menu .ham .bar:nth-child(2),
+.nav .ico-menu .ham .bar:nth-child(3) {top: 10px;}
+.nav .ico-menu .ham .bar:nth-child(4) {top: 20px;}
+
+.nav .ico-menu.active .ham .bar:nth-child(1),
+.nav .ico-menu.active .ham .bar:nth-child(4) {display: none;}
+.nav .ico-menu.active .ham .bar:nth-child(2) {transform: rotate(-45deg);}
+.nav .ico-menu.active .ham span:nth-child(3) {transform: rotate(45deg);}
+.nav .ico-menu.active + .gnb {right:0;}
+
+.nav .gnb {
+    position: fixed;
+    top: 0; right: -100%;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(251, 255, 71, 1);
+    transition: 0.3s ease-in;
+    z-index: 3000;
+}
+.nav .gnb .menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.nav .gnb .menu ul {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.nav .gnb .menu ul li {
+    font-size: 100px;
+    margin-bottom: 0.7em;
+}
+.nav .gnb .menu ul li:last-child{margin-bottom: 0;}
+.nav .gnb .menu ul li a {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 5px;
+    transition: 0.3s;
+    color: rgba(109,198,204,1);
+    -webkit-font-smoothing : antialiased;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .9px rgba(0, 0, 0, 1);
+}
+.nav .gnb .menu ul li:hover a {
+    -webkit-text-fill-color:  rgb(255, 255, 255);
+    text-shadow: 6px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+/* main 영역 */
+#main {
+    height: 100vh;
+    position: relative;
+}
+.main .main-view {
+    position: absolute;
+    top: 30%; left: 10%;
+    z-index: 10;
+}
+.main .main-view .hello {position: relative;}
+.main .main-view .hello:before{
+    content: "2019-2020";
+    position: absolute;
+    top: -20px; left: 3px;
+}
+.main-view .hello p {
+    position: relative;
+    display: inline-block;
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.1em;
+    padding: 0.1em 0.2em;
+}
+.hello p br {display: none;}
+.hello p:nth-child(1):before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(109,198,204,1) 0%, rgba(234,229,200,1) 100%);
+    animation: revealText 5s forwards;
+}
+.hello p:nth-child(2):before{
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 0%;
+    height:  100%;
+    background: linear-gradient(to right, rgba(234,229,200,1) 0%, rgba(109,198,204,1) 100%);
+    animation: revealText 5s forwards;
+}
+@keyframes revealText {
+    0% {
+        width: 100%;
+        z-index: 1;
+    }
+    50% {
+        width: 0%;
+        z-index: 1;
+    }
+    51% {
+        width: 0%;
+        z-index: -1;
+    }
+    100% {
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.main-view .photo {
+    position: absolute;
+    top: 0; right: 10%;
+    width: 40%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+    transition-delay: 2s;
+    z-index: -100;
+}
+.main-view.show .photo,
+.main-view.show + .more-button {
+    transform: translateY(-10%);
+    opacity: 1;
+    visibility: visible;
+}
+.main .more-button {
+    position: absolute;
+    bottom: 5%; left: 30%;
+    display: block;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: #fbff47;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+    z-index: 10;
+    animation: jumping 2s infinite;
+}
+@keyframes jumping {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);}
+}
+.main .more-button:hover {
+    transform: scale(0.9);
+    box-shadow: 0 0 40px 40px #fbff47;
+}
+
+
+/* about 영역 */
+#about {padding: 300px 0 0;}
+.about .contents-container > div {margin-bottom: 130px;}
+.about .contents-container > div:last-child {margin-bottom: 0;}
+.about .contents-container h3 {
+    position: relative;
+    font-size: 22px;
+    text-decoration: underline;
+    margin-bottom: 4em;
+    line-height: 1.2;
+}
+.about .about-me {text-align: center;}
+.about .about-me .memoji {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    background-color: #fbff47;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.about .about-me .memoji img {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 55%;
+    transform: translate(-50%, -50%);
+}
+.about .about-me p {
+    position: relative;
+    line-height: 1.6;
+    margin-top: 3em;
+}
+.about .about-me p:before,
+.about .about-me p:after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 27px;
+}
+.about .about-me p:before {
+    top: 0; left: -15px;
+    background: url(../img/db_quotes1.png) no-repeat center center /cover;
+}
+.about .about-me p:after {
+    top: 4px; right: -15px;
+    background: url(../img/db_quotes2.png) no-repeat center center / cover;
+}
+.about .wrap {display: flex;}
+.about .wrap .like {
+    width: 45%;
+    box-sizing: border-box;
+    padding-right: 5%;
+}
+.about .like ul {display: flex;}
+.about .like ul li {
+    width: 25%;
+    text-align: center;
+    margin-right: 8%;
+}
+.about .like ul li .like-svg {
+    display: block;
+    text-align: center;
+}
+.about .like ul li .like-svg svg {
+    width: 60px;
+    height: 60px;
+}
+.about .like ul li em {
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 1.2em;
+}
+.about .skill {
+    position: relative;
+    width: 55%;
+}
+.about .skill .skillbutton{
+    position: absolute;
+    top: 54%; left: 5%;
+    width: 65px; 
+    height: 65px;
+    font-weight: 600;
+    background-color: #fbff47;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+    animation: bounce 0.7s infinite;
+}
+@keyframes bounce
+{
+  0% {transform: scale( 0.9 );}
+  20% {transform: scale( 1 );}
+  40% {transform: scale( 0.9 );}
+  60% {transform: scale( 1 );}
+  80% {transform: scale( .9 );}
+  100% {transform: scale( .9 );}
+}
+.about .skill .skillbutton.active {
+    box-shadow: 0 0 15px 15px #fbff47;
+    animation: none;
+}
+.about .skill ul {padding-left: 25%;}
+.about .skill ul li {margin-bottom: 1.2em;}
+.about .skill ul li .legend {
+    display: inline-block;
+    width: 30%;
+}
+.about .skill ul li .skillbox {
+    display: inline-block;
+    position: relative;
+    width: 55%;
+    height: 5px;
+    background-color: #acacac;
+    margin-bottom: 4px;
+}
+.about .skill ul li .skillbox .skillbar {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 0%;
+    background-color: #fbff47;
+}
+.about .skill ul li .skillbox .rate {
+    position: absolute;
+    top: -3px; right: -35px;
+    font-size: 14px;
+}
+.about .history .history-contents ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -11px;
+}
+.about .history .history-contents li {
+    position: relative;
+    width: 25%;
+    padding-top: 2.5em;
+    border-top: 3px dotted #333;
+}
+.about .history .history-contents li:before {
+    content: "";
+    position: absolute;
+    top: -10px; left: 0;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: 2px solid #333;
+    background-color: #fbff47;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}
+.about .history .history-contents li .year {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+.history .history-contents li em {
+    display: block;
+    line-height: 1.5;
+}
+.about .tryto ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.about .tryto ul li {
+    width: 33.333%;
+    text-align: center;
+}
+.about .tryto ul li .svgicon{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fbff47;
+    margin: 0 auto;
+}
+.about .tryto ul li .svgicon svg {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+}
+.about .tryto ul li em{
+    position: relative;
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 1.5em 0 2.5em;
+}
+.about .tryto ul li em:after {
+    content: "";
+    position: absolute;
+    bottom: -35px; left: 50%;
+    width: 15px;
+    height: 3px;
+    background: #333;
+    transform: translateX(-50%);
+}
+.about .tryto ul li p{
+    line-height: 1.5;
+    padding: 0 2.5em;
+}
+
+
+/* project 영역 */
+#project {padding: 300px 0 0;}
+#project .container {width: 100%;}
+#project .row {padding: 0;}
+.project h2 {
+    width: 1280px;
+    margin: 0 auto 0.7em;
+}
+.project .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.4s;
+    transition-delay: 0.4s;
+}
+.project .project-list > div {
+    position: relative;
+    width: 44%;
+    margin: 0 4% 4% 0;
+}
+.project .project-list > div:nth-child(3) {margin-left: 4%;}
+.project .cover{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #fbff47;
+    transition: 0.2s;
+    padding: 7%;
+    opacity: 1;
+    visibility: visible;
+}
+.project .project-list > div:hover .cover {
+    opacity: 0;
+    visibility: hidden;
+}
+.project .project-list > div:hover img {
+   transform: scale(0.95);
+}
+.project .project-list img {
+    transition: 0.3s;
+}
+.project .cover h4 {
+    position: absolute;
+    bottom: 8%; left: 7%;
+    font-size: 70px;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+.project .cover h4 .year {
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: text-top;
+    margin-left: 0.6em;
+}
+.project .cover .category {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 1em;
+}
+.project .cover p {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+
+/*  contact */
+#contact {padding: 200px 0;}
+.contact .wating p {
+    font-size: 58px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+.contact .wating .photo {
+    text-align: center;
+    margin: 100px 0 150px;
+    transition: 0.5s;
+}
+.contact .wating .photo img {
+    width: 70%;
+    animation: hue 3s infinite alternate;
+}
+@keyframes hue {
+    0%, 100%  { -webkit-filter: hue-rotate(0deg); }
+    50% { -webkit-filter: hue-rotate(180deg); }
+}
+.contact .infor ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.contact .infor ul li {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    z-index: 30;
+}
+.contact .infor ul li a{
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 400;
+    color: #333;
+    padding: 0.3em 0.5em;
+    border-bottom: 3px dotted #333;
+}
+/* .contact .infor ul li:hover a{background: #fbff47;} */
+.contact .infor ul li .infor-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.contact .infor ul li a span.tooltip {
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fbff47;
+    padding: 0.5em;
+    width: 60%;
+    border-radius: 20px;
+    font-size: 18px;
+    opacity: 0; 
+    visibility: hidden;
+    transition: 0.3s;
+}
+.contact .infor ul li a span.tooltip:after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fbff47 transparent transparent transparent;
+}
+.contact .infor ul li a em.show + span.tooltip {
+    opacity: 1; 
+    visibility: visible;
+}
+.contact .instagram {
+    position: fixed;
+    bottom: 30px; left: 30px;
+    font-size: 20px;
+}
+.contact .copyright {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: #666;
+}
+
+
+/* footer */
+#footer {padding-bottom: 200px;}
+#footer .thankyou .heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 0 auto;
+    animation: heartbeat 1s infinite;
+}
+#footer .thankyou .heart:before,
+#footer .thankyou .heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #fbff47;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#footer .thankyou .heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
+
+
+@keyframes heartbeat
+{
+  0% {transform: scale( .75 );}
+  20% {transform: scale( 1 );}
+  40% {transform: scale( .75 );}
+  60% {transform: scale( 1 );}
+  80% {transform: scale( .75 );}
+  100% {transform: scale( .75 );}
+}
+#footer .thankyou p {
+    font-size: 72px;
+    font-weight: 400;
+    color: #fbff47;
+    text-align: center;
+    line-height: 1.4;
+    margin-top: 0.5em;
+}
+
+
+/* 미디어쿼리 */
+@media (max-width: 1290px) {
+
+    .container {width: 100%;}
+    .row {padding: 0 24px;}
+    .contents-container {box-shadow: none;}
+
+    .header h1 a {font-size: 18px;}
+    .nav .ico-menu .ham .bar {
+        width: 20px;
+        height: 2px;
+    }
+    .nav .ico-menu .ham .bar:nth-child(2),
+    .nav .ico-menu .ham .bar:nth-child(3) {top: 6px;}
+    .nav .ico-menu .ham .bar:nth-child(4) {top: 12px;}
+    .nav .gnb .menu ul li {font-size: 74px;}
+
+    .main-view .hello p {font-size: 54px;}
+    .main .more-button {
+        width: 120px;
+        height: 120px;
+        font-size: 18px;
+        line-height: 120px;
+    }
+    .main .more-button:hover {box-shadow: 0 0 20px 20px #fbff47;}
+    
+    .project h2 {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 16px;
+    }
+    .project .cover h4{font-size: 48px;}
+    .project .cover h4 .year {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .project .cover .category {font-size: 18px;}
+    .project .cover p {font-size: 14px;}
+
+    .contact .instagram {font-size: 16px;}
+    .contact .copyright {font-size: 14px;}
+}
+@media (max-width: 1024px) {
+
+    #about {padding: 200px 0 0;}
+    #project {padding: 200px 0 0;}
+    #contact {padding: 150px 0;}
+    #footer {padding-bottom: 150px;}
+
+    .main-view .hello p {font-size: 45px;}
+    .main .main-view .hello:before{
+        top: -15px;
+        font-size: 12px;
+    }
+    .main .more-button {
+        width: 100px;
+        height: 100px;
+        font-size: 16px;
+        line-height: 100px;
+    }
+
+    .about .about-me p:before,
+    .about .about-me p:after {
+        width: 25px;
+        height: 21px;
+    }
+    .about .tryto ul li p {padding: 0 1em;}
+
+    .project .cover h4{font-size: 38px;}
+    .project .cover .category {font-size: 15px;}
+    .project .cover p {font-size: 12px;}
+
+    .contact .wating .photo {margin-bottom: 100px;}
+    .contact .infor ul {display: block;}
+
+    #footer .thankyou p {font-size: 58px}
+}
+@media (max-width: 960px) {
+
+    .contents-container {
+        font-size: 15px;
+        padding: 90px;
+    }
+
+    .main .main-view {left: 5%;}
+    .main-view .photo {right: 5%;}
+    h2.title {font-size: 68px;}
+
+    .about .contents-container > div {margin-bottom: 100px;}
+    .about .like ul li .like-svg svg {
+        width: 50px;
+        height: 50px;
+    }
+    .about .skill .skillbutton.active {box-shadow: 0 0 10px 10px #fbff47}
+    .about .tryto ul li em {font-size: 22px;}
+
+    .contact .wating p {font-size: 48px;}
+    .contact .infor ul li a {font-size: 22px;}
+
+@media (max-width: 768px) {
+
+    .row {padding: 0 16px;}
+    .contents-container {padding: 70px;}
+
+    .header {top: 15px; left: 15px;}
+    .header h1 a {font-size: 15px;}
+    .nav .ico-menu {top: 18px; right: 15px;}
+
+    .main-view .hello p {font-size: 34px;}
+    .main .main-view .hello:before {
+        top: -12px;
+        font-size: 9px;
+    }
+    .nav .gnb .menu ul li {font-size: 58px;}
+    .nav .gnb .menu ul li a {-webkit-text-stroke: .6px rgba(0, 0, 0, 1);}
+    .main .more-button {
+        width: 80px;
+        height: 80px;
+        font-size: 13px;
+        line-height: 80px;
+    }
+
+    .about .contents-container h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .about .about-me .memoji {
+        width: 150px;
+        height: 150px;
+    }
+    .about .about-me p:before,
+    .about .about-me p:after {
+        width: 19px;
+        height: 16px;
+    }
+    .about .wrap {display: block;}
+    .about .wrap .like {
+        width: 100%;
+        margin-bottom: 100px;
+        padding-right: 0;
+    }
+    .about .like ul li {
+        width: 33.3333%;
+        margin-right: 0;
+    } 
+    .about .wrap .skill {width: 100%;}
+    .about .skill ul li .skillbox {height: 4px;}
+    .about .history .history-contents li {border-width: 2px;}
+    .about .history .history-contents li:before {
+        width: 15px;
+        height: 15px;
+    }
+    .about .tryto ul li em {font-size: 20px;}
+    .about .tryto ul li .svgicon {
+        width: 55px;
+        height: 55px;
+    }
+    .about .tryto ul li .svgicon svg {
+        width: 30px;
+        height: 30px;
+    }
+    .about .tryto ul li em:after {bottom: -27px;}
+
+
+    #project .row {padding: 0 16px;}
+    .project .project-list > div {
+        width: 75%;
+        margin: 0 0 7% 0;
+    }
+    .project .project-list > div:nth-child(2),
+    .project .project-list > div:nth-child(4) {margin-left: 25%;}
+    .project .project-list > div:nth-child(3) {margin-left: 0;}
+
+    .contact .infor ul li a {font-size: 18px;}
+    .contact figure {margin-bottom: 100px;}
+    .contact .instagram {
+        bottom: 15px; 
+        left: 15px;
+        font-size: 12px;
+    }
+    .contact .copyright {
+        bottom: 15px; 
+        right: 15px;
+        font-size: 10px;
+    }
+
+    #footer .thankyou p {font-size: 42px;}
+}
+@media (max-width: 600px) {
+
+    #about {padding: 150px 0 0;}
+    #project {padding: 150px 0 0;}
+    #contact {padding: 100px 0;}
+    #footer {padding-bottom: 100px;}
+    .contents-container {
+        font-size: 13px;
+        padding: 50px;
+    }
+    h2.title {font-size: 48px;}
+
+    .main .main-view {top: 20%;}
+    .main-view .hello p br {display: block;}
+    .main-view .photo {
+        top: 80%;
+        width: 60%;
+    }
+    
+    .about .like ul li .like-svg svg {
+        width: 50px; 
+        height: 50px;
+    }
+    .about .skill ul li .skillbox .rate {font-size: 11px;}
+    .about .history .history-contents li {width: 50%;}
+    .about .history .history-contents li:nth-child(1),
+    .about .history .history-contents li:nth-child(2) {margin-bottom: 50px;}
+    .about .tryto ul li {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .about .tryto ul li:last-child {margin-bottom: 0;}
+
+    .contact .wating p {font-size: 24px;}
+    .contact .wating .photo {margin: 50px 0;}
+    .contact figure {margin: 60px 0;}
+    .contact .infor ul li a {
+        font-size: 18px;
+        padding: 0;
+    }
+}
+@media (max-width: 480px) {
+    #about {padding: 50px 0 0;}
+    #project {padding: 100px 0 0;}
+    #contact {padding: 80px 0;}
+    #footer {padding-bottom: 80px;}
+    
+    .row,
+    #project .row {padding: 0 8px;}
+    .contents-container {padding: 50px 30px;}
+    
+    .main .more-button{bottom: 18%; left: 18%;}
+    .main-view .photo {width: 70%;}
+
+    .about .contents-container > div {margin-bottom: 70px;}
+    .about .contents-container h3 {font-size: 16px;}
+    .about .about-me .memoji {
+        width: 120px;
+        height: 120px;
+    }
+    .about .about-me p:before, 
+    .about .about-me p:after {
+        display: none;
+    }
+    .about .like ul li .like-svg svg {
+        width: 40px;
+        height: 40px;
+    }
+    .about .skill ul {padding-left: 0;}
+    .about .skill ul li .skillbox {height: 3px;}
+    .about .skill .skillbutton {
+        width: 50px;
+        height: 50px;
+        left: 87%; top: 0;
+        font-size: 12px;
+        animation: none;
+    }
+    .about .skill ul li .skillbox {width: 60%;}
+    .about .tryto ul li em {font-size: 18px;}
+    
+    .project h2 {padding: 0;}
+    .project .project-list > div {
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    .project .project-list > div:nth-child(2),
+    .project .project-list > div:nth-child(4) {margin-left: 0;}
+    .contact .infor ul li a {font-size: 14px;}
+    .contact .infor ul li .infor-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .contact .infor ul li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    #footer .thankyou p {display: none;}
+}
+@media (max-width: 380px) {
+    .main-view .hello p {font-size: 32px;}
+    .main-view .photo {
+        top: 95%;
+        width: 80%;
+    }
+    .main .more-button {left: 50%;}
+    .nav .gnb .menu ul li {font-size: 45px;}
+}
