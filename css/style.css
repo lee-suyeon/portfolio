@@ -1,8 +1,25 @@
 @charset "utf-8";
+:root {
+    /* color */
+    --white: #fff;
+    --base-color: rgb(243, 240, 221);
+    --sub-color: rgb(109,198,204,1);
+    --point-color: rgb(251, 255, 71);
+    --gray-color: #7f827c;
+    --dark-gray-color: #333;
+
+    /* font */
+    --title-font-size: 5rem;
+    --sub-font-size: 2rem;
+    --large-font-size: 3.2rem;
+    --middle-font-size: 1.5rem;
+    --base-font-size: 1.25rem;
+
+}
 html {scroll-behavior: smooth;}
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: linear-gradient(135deg, rgba(234,229,200,1) 50%, rgba(109,198,204,1) 100%);
+    background: radial-gradient(circle, var(--sub-color) 0%, var(--base-color) 100%);
 }
 
 
@@ -44,8 +61,9 @@ h2.hide, h2.hide + .cont-box {
     top: 30px; left: 30px;
 }
 .header h1 a {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: var(--middle-font-size);
+    color: var(--dark-gray-color);
+    font-weight: bold;
 }
 
 /* nav 영역 */
@@ -68,7 +86,7 @@ h2.hide, h2.hide + .cont-box {
     top: 0; 
     height: 3px;
     width: 30px;
-    background-color: #333;
+    background-color: var(--dark-gray-color);
     transition: 0.2s;
 }
 .nav .ico-menu .ham .bar:nth-child(1) {top: 0;}
@@ -84,42 +102,34 @@ h2.hide, h2.hide + .cont-box {
 
 .nav .gnb {
     position: fixed;
-    top: 0; right: -100%;
+    top: 0; right: -20%;
     bottom: 0;
-    width: 100%;
-    background-color: rgba(251, 255, 71, 1);
+    width: 20%;
+    background-color: var(--point-color);
     transition: 0.3s ease-in;
     z-index: 3000;
 }
 .nav .gnb .menu {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-.nav .gnb .menu ul {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
 }
-.nav .gnb .menu ul li {
-    font-size: 100px;
-    margin-bottom: 0.7em;
+.nav .gnb .menu li {
+    font-size: var(--large-font-size);
+    margin-bottom: 2rem;
 }
-.nav .gnb .menu ul li:last-child{margin-bottom: 0;}
-.nav .gnb .menu ul li a {
+.nav .gnb .menu li:last-child{margin-bottom: 0;}
+.nav .gnb .menu li a {
     display: block;
-    font-weight: 700;
-    letter-spacing: 5px;
+    font-weight: bold;
     transition: 0.3s;
-    color: rgba(109,198,204,1);
     -webkit-font-smoothing : antialiased;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: .9px rgba(0, 0, 0, 1);
+    -webkit-text-stroke: 0.8px var(--dark-gray-color);
 }
-.nav .gnb .menu ul li:hover a {
-    -webkit-text-fill-color:  rgb(255, 255, 255);
-    text-shadow: 6px 6px rgba(0, 0, 0, 0.7);
+.nav .gnb .menu li:hover a {
+    -webkit-text-fill-color:  var(--white);
+    text-shadow: 3px 3px var(--gray-color);
 }
 
 
@@ -128,99 +138,51 @@ h2.hide, h2.hide + .cont-box {
     height: 100vh;
     position: relative;
 }
-.main .main-view {
+.main .intro {
     position: absolute;
-    top: 30%; left: 10%;
-    z-index: 10;
+    top: 47%; left: 10%;
+    transform: translateY(-50%);
+    min-width: 1280px;
 }
-.main .main-view .hello {position: relative;}
-.main .main-view .hello:before{
-    content: "2019-2020";
-    position: absolute;
-    top: -20px; left: 3px;
-}
-.main-view .hello p {
+.main .intro .text-box {overflow: hidden;}
+.main .intro .text-box > p {
     position: relative;
-    display: inline-block;
-    font-size: 84px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.1em;
-    padding: 0.1em 0.2em;
+    top: 100px;
+    font-size: var(--title-font-size);
+    font-weight: bold;
+    line-height: 1.5;
+    transition: 0.7s 0.3s;
 }
-.hello p br {display: none;}
-.hello p:nth-child(1):before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(109,198,204,1) 0%, rgba(234,229,200,1) 100%);
-    animation: revealText 5s forwards;
-}
-.hello p:nth-child(2):before{
-    content: "";
-    position: absolute;
-    top: 0; right: 0;
-    width: 0%;
-    height:  100%;
-    background: linear-gradient(to right, rgba(234,229,200,1) 0%, rgba(109,198,204,1) 100%);
-    animation: revealText 5s forwards;
-}
-@keyframes revealText {
-    0% {
-        width: 100%;
-        z-index: 1;
-    }
-    50% {
-        width: 0%;
-        z-index: 1;
-    }
-    51% {
-        width: 0%;
-        z-index: -1;
-    }
-    100% {
-        width: 100%;
-        z-index: -1;
-    }
-}
+.main .intro.show .text-box > p {top: 0px;}
+.main .intro .text-box > p.last {transition-delay : 0.7s;}
 
-.main-view .photo {
+.main .photo {
     position: absolute;
-    top: 0; right: 10%;
-    width: 40%;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1s;
-    transition-delay: 2s;
+    top: 50%; right: 10%;
+    transform: translateY(-50%);
+    width: 32vw;
     z-index: -100;
-}
-.main-view.show .photo,
-.main-view.show + .more-button {
-    transform: translateY(-10%);
-    opacity: 1;
-    visibility: visible;
 }
 .main .more-button {
     position: absolute;
-    bottom: 5%; left: 30%;
-    display: block;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
+    bottom: 5%; left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    background-color: #fbff47;
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 150px;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1s;
-    z-index: 10;
-    animation: jumping 2s infinite;
+    background-color: var(--point-color);
+    transition: 0.3s;
+    animation: jumping 2s infinite 1s;
 }
+.main button.more {font-size: var(--middle-font-size);}
+.main .more-button:hover {
+    transform: scale(0.9);
+    box-shadow: 0 0 20px 20px var(--point-color);
+    cursor: pointer;
+}
+
 @keyframes jumping {
     0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
     40% {
@@ -229,13 +191,12 @@ h2.hide, h2.hide + .cont-box {
     60% {
         transform: translateY(-10px);}
 }
-.main .more-button:hover {
-    transform: scale(0.9);
-    box-shadow: 0 0 40px 40px #fbff47;
-}
 
 
-/* about 영역 */
+
+
+
+/********** about 영역 **********/
 #about {padding: 300px 0 0;}
 .about .contents-container > div {margin-bottom: 130px;}
 .about .contents-container > div:last-child {margin-bottom: 0;}
@@ -645,7 +606,7 @@ h2.hide, h2.hide + .cont-box {
 
 
 /* 미디어쿼리 */
-@media (max-width: 1290px) {
+/* @media (max-width: 1290px) {
 
     .container {width: 100%;}
     .row {padding: 0 24px;}
@@ -938,4 +899,4 @@ h2.hide, h2.hide + .cont-box {
     }
     .main .more-button {left: 50%;}
     .nav .gnb .menu ul li {font-size: 45px;}
-}
+} */

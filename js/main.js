@@ -1,26 +1,26 @@
 window.addEventListener("load", function () {
     
-    function goToHome () {
-        document.documentElement.scrollTop = 0;
-    };
-
-    //home click
-    document.querySelector("h1").addEventListener("click", function (e) {
+    
+    // main-text-animation
+    document.querySelector(".intro").classList.add('show');
+    
+    
+    //home-click-event
+    document.querySelector("h1").addEventListener("click", (e) => {
         e.preventDefault();
         goToHome();
     });
+    goToHome = () => {document.documentElement.scrollTop = 0;};
 
-    // main animation 
-    document.querySelector(".main-view").classList.add("show");
 
-    // more button
-    document.querySelector(".more-button").addEventListener("click", function (e) {
+    //more-button-click-evnet
+    document.querySelector(".more-button").addEventListener("click", (e) => {
         e.preventDefault();
         document.documentElement.scrollTop = sectionCont[1].offsetTop;
-    })
+    });
 
     // scroll event
-    var sectionCont = document.querySelectorAll("section");
+    const sectionCont = document.querySelectorAll("section");
 
     window.addEventListener("scroll", function () {
         var scrollTop = document.documentElement.scrollTop,

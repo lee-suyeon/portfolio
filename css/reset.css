@@ -51,6 +51,9 @@ table {
 body, input, textarea, select, button, table {
 	font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif;
 }
+div {
+	box-sizing: border-box;
+}
 
 /* a링크 초기화 */
 a {
@@ -59,7 +62,11 @@ a {
 }
 
 /* 버튼 초기화 */
-button {border: none; outline: none;}
+button {
+	border: none; 
+	outline: none;
+	background: transparent;
+}
 
 /* clearfix */
 .clearfix{*zoom:1;}
