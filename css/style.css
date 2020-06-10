@@ -13,12 +13,17 @@
     --sub-font-size: 2rem;
     --large-font-size: 3.2rem;
     --middle-font-size: 1.5rem;
-    --base-font-size: 1.25rem;
+    --base-font-size: 1.2rem;
+    --small-font-size: 0.9rem;
+
+    /* padding */
+    --section-padding: 300px 0;
 
 }
 html {scroll-behavior: smooth;}
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: var(--base-font-size);
     background: radial-gradient(circle, var(--sub-color) 0%, var(--base-color) 100%);
 }
 
@@ -29,19 +34,18 @@ body {
     margin: 0 auto;
 }
 .contents-container {
-    border: 1px solid #666;
+    border: 1px solid var(--gray-color);
     background-color: #fff;
-    font-size: 18px;
-    box-shadow: 20px 20px #7f827c;
+    box-shadow: 20px 20px var(--gray-color);
+    line-height: 1.5;
     padding: 130px;
-    transition: 0.4s;
-    transition-delay: 0.4s;
+    transition: 0.4s 0.4s;
 }
 h2.title {
     position: relative;
-    font-size: 80px;
-    font-weight: 700;
-    margin-bottom: 0.5em;
+    font-size: var(--title-font-size);
+    font-weight: bold;
+    margin-bottom: 3rem;
     transition: 0.4s;
 }
 h2.hide, h2.hide + .cont-box {
@@ -49,7 +53,6 @@ h2.hide, h2.hide + .cont-box {
     visibility: hidden;
     transform: translateY(100px);
 }
-
 
 /* 헤더영역 */
 #header {
@@ -197,89 +200,70 @@ h2.hide, h2.hide + .cont-box {
 
 
 /********** about 영역 **********/
-#about {padding: 300px 0 0;}
-.about .contents-container > div {margin-bottom: 130px;}
-.about .contents-container > div:last-child {margin-bottom: 0;}
-.about .contents-container h3 {
-    position: relative;
-    font-size: 22px;
+#about {padding: var(--section-padding)}
+.about .contents-container article {margin-bottom: 120px;}
+.about .contents-container article:last-child {margin-bottom: 0;}
+
+.about .contents-container h3.sub-title {
+    font-size: var(--middle-font-size);
     text-decoration: underline;
-    margin-bottom: 4em;
-    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 3em;
 }
 .about .about-me {text-align: center;}
+.about .about-me .profile {position: relative;}
+.about .about-me p {
+    font-size: var(--base-font-size);
+    line-height: 1.5;
+    margin-top: 2.5rem;
+}
 .about .about-me .memoji {
-    position: relative;
     width: 180px;
     height: 180px;
-    background-color: #fbff47;
+    background-color: var(--point-color);
     border-radius: 50%;
     margin: 0 auto;
 }
 .about .about-me .memoji img {
-    display: block;
-    position: absolute;
+    position: relative;
     top: 50%; left: 50%;
     width: 55%;
     transform: translate(-50%, -50%);
 }
-.about .about-me p {
-    position: relative;
-    line-height: 1.6;
-    margin-top: 3em;
+
+.about .cont-wrap{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-.about .about-me p:before,
-.about .about-me p:after {
-    content: "";
-    position: absolute;
-    width: 32px;
-    height: 27px;
-}
-.about .about-me p:before {
-    top: 0; left: -15px;
-    background: url(../img/db_quotes1.png) no-repeat center center /cover;
-}
-.about .about-me p:after {
-    top: 4px; right: -15px;
-    background: url(../img/db_quotes2.png) no-repeat center center / cover;
-}
-.about .wrap {display: flex;}
-.about .wrap .like {
-    width: 45%;
-    box-sizing: border-box;
-    padding-right: 5%;
-}
-.about .like ul {display: flex;}
-.about .like ul li {
-    width: 25%;
-    text-align: center;
-    margin-right: 8%;
-}
-.about .like ul li .like-svg {
-    display: block;
+
+.about .like {flex-basis: 40%;}
+.about .like ul {
+    display: flex;
+    justify-content: space-around;
     text-align: center;
 }
+.about .like ul li {flex-basis: 30%;}
 .about .like ul li .like-svg svg {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
 }
 .about .like ul li em {
     display: block;
-    text-align: center;
     line-height: 1.2;
-    margin-top: 1.2em;
+    margin-top: 1rem;
 }
 .about .skill {
     position: relative;
-    width: 55%;
+    flex-basis: 50%;
 }
 .about .skill .skillbutton{
     position: absolute;
-    top: 54%; left: 5%;
+    top: 0px; right: 20px;
     width: 65px; 
     height: 65px;
-    font-weight: 600;
-    background-color: #fbff47;
+    font-weight: bold;
+    background-color: var(--point-color);
     border-radius: 50%;
     transition: 0.3s;
     cursor: pointer;
@@ -295,11 +279,10 @@ h2.hide, h2.hide + .cont-box {
   100% {transform: scale( .9 );}
 }
 .about .skill .skillbutton.active {
-    box-shadow: 0 0 15px 15px #fbff47;
+    box-shadow: 0 0 10px 10px var(--point-color);
     animation: none;
 }
-.about .skill ul {padding-left: 25%;}
-.about .skill ul li {margin-bottom: 1.2em;}
+.about .skill ul li {margin-bottom: 1rem;}
 .about .skill ul li .legend {
     display: inline-block;
     width: 30%;
@@ -309,20 +292,21 @@ h2.hide, h2.hide + .cont-box {
     position: relative;
     width: 55%;
     height: 5px;
-    background-color: #acacac;
-    margin-bottom: 4px;
+    background-color: var(--gray-color);
+    vertical-align: middle;
 }
 .about .skill ul li .skillbox .skillbar {
     position: absolute;
     top: 0; left: 0; bottom: 0;
     width: 0%;
-    background-color: #fbff47;
+    background-color: var(--point-color);
 }
 .about .skill ul li .skillbox .rate {
     position: absolute;
     top: -3px; right: -35px;
-    font-size: 14px;
+    font-size: var(--small-font-size);
 }
+
 .about .history .history-contents ul {
     display: flex;
     flex-wrap: wrap;
@@ -330,9 +314,9 @@ h2.hide, h2.hide + .cont-box {
 }
 .about .history .history-contents li {
     position: relative;
-    width: 25%;
+    flex-basis: 25%;
     padding-top: 2.5em;
-    border-top: 3px dotted #333;
+    border-top: 3px dotted var(--dark-gray-color);
 }
 .about .history .history-contents li:before {
     content: "";
@@ -340,26 +324,23 @@ h2.hide, h2.hide + .cont-box {
     top: -10px; left: 0;
     width: 18px;
     height: 18px;
-    box-sizing: border-box;
-    border: 2px solid #333;
-    background-color: #fbff47;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--dark-gray-color);
+    background-color: var(--point-color);
+    box-shadow: 2px 2px var(--gray-color);
 }
 .about .history .history-contents li .year {
     display: block;
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 0.5em;
 }
-.history .history-contents li em {
-    display: block;
-    line-height: 1.5;
-}
+.history .history-contents li em {display: block;}
 .about .tryto ul {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .about .tryto ul li {
-    width: 33.333%;
+    flex-basis: 30%;
     text-align: center;
 }
 .about .tryto ul li .svgicon{
@@ -367,7 +348,7 @@ h2.hide, h2.hide + .cont-box {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #fbff47;
+    background-color: var(--point-color);
     margin: 0 auto;
 }
 .about .tryto ul li .svgicon svg {
@@ -380,7 +361,7 @@ h2.hide, h2.hide + .cont-box {
 .about .tryto ul li em{
     position: relative;
     display: block;
-    font-size: 28px;
+    font-size: var(--middle-font-size);
     font-weight: 600;
     margin: 1.5em 0 2.5em;
 }
@@ -392,10 +373,6 @@ h2.hide, h2.hide + .cont-box {
     height: 3px;
     background: #333;
     transform: translateX(-50%);
-}
-.about .tryto ul li p{
-    line-height: 1.5;
-    padding: 0 2.5em;
 }
 
 
@@ -606,7 +583,7 @@ h2.hide, h2.hide + .cont-box {
 
 
 /* 미디어쿼리 */
-/* @media (max-width: 1290px) {
+@media (max-width: 1290px) {
 
     .container {width: 100%;}
     .row {padding: 0 24px;}
@@ -899,4 +876,5 @@ h2.hide, h2.hide + .cont-box {
     }
     .main .more-button {left: 50%;}
     .nav .gnb .menu ul li {font-size: 45px;}
-} */
+}
+}
