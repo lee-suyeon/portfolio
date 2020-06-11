@@ -22,12 +22,12 @@ window.addEventListener("load", function () {
     // scroll event
     const sectionCont = document.querySelectorAll("section");
 
-    window.addEventListener("scroll", function () {
-        var scrollTop = document.documentElement.scrollTop,
+    window.addEventListener("scroll",  () => {
+        const scrollTop = document.documentElement.scrollTop,
         winBottom = scrollTop + window.innerHeight;
         
         for(let i = 0; i < sectionCont.length - 1; i++){
-            var sectionBottom = sectionCont[i].offsetTop + sectionCont[i].offsetHeight;
+            const sectionBottom = sectionCont[i].offsetTop + sectionCont[i].offsetHeight;
             if(winBottom >= sectionBottom + 400){
                 document.querySelectorAll("h2.title")[i].classList.remove("hide");
             }
@@ -36,15 +36,15 @@ window.addEventListener("load", function () {
 
 
     // nav button
-    var navBtn = document.querySelector(".ico-menu");
+    let navBtn = document.querySelector(".ico-menu");
     
-    navBtn.addEventListener("click",function (e) {
+    navBtn.addEventListener("click", function (e) {
         e.preventDefault();
         this.classList.toggle("active");
     });
 
     // menu button
-    var menuBtn = document.querySelectorAll(".gnb ul li");
+    let menuBtn = document.querySelectorAll(".gnb ul li");
     
     for(let j = 0; j < menuBtn.length; j++){
         menuBtn[j].addEventListener("click", function (e) {
@@ -54,15 +54,15 @@ window.addEventListener("load", function () {
         });
     }
     function moveToPage (idx) {
-        var sectionPos = sectionCont[idx].offsetTop;
+        let sectionPos = sectionCont[idx].offsetTop;
         document.documentElement.scrollTop = sectionPos;
     }
     
     //skill button
-    var skillBtn = document.querySelector(".skillbutton");
-    var skillBox = document.querySelectorAll(".skillbox");
+    let skillBtn = document.querySelector(".skillbutton");
+    let skillBox = document.querySelectorAll(".skillbox");
     
-    var time = 600;
+    const time = 600;
     
     skillBtn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -70,33 +70,36 @@ window.addEventListener("load", function () {
 
         skillBox.forEach(function (i) {
             
-            var skill = i.children[0],
-                rate = i.children[1];
-            var count = 0;
-            var dataCount = skill.getAttribute("data-rate");
-            var runTime = time / dataCount;
+            let skill = i.children[0],
+                    rate = i.children[1];
+            let count = 0;
+            let dataCount = skill.getAttribute("data-rate");
+            let runTime = time / dataCount;
 
-            setInterval(function () {
+            let timer = setInterval(() => {
                 if(count < dataCount){
                     count++;
                     rate.innerHTML = count + "%";
                     skill.style.width = count + "%";
+                    console.log(dataCount)
+                } else if(count === dataCount){
+                    clearInterval(timer);
                 }
-            }, runTime)  
+            }, runTime);
         })
-    });
+    },{once : true});
 
 
     //copy event 
-    var inforCopy = document.querySelectorAll(".copy");
+    const inforCopy = document.querySelectorAll(".copy");
 
-    for(var c = 0; c < inforCopy.length; c++){
+    for(let c = 0; c < inforCopy.length; c++){
         inforCopy[c].addEventListener("click", function (e) {
             e.preventDefault();
-            
-            var infor = this.innerHTML;
+
+            const infor = this.innerHTML;
            
-            var tempElem = document.createElement('textarea');
+            const tempElem = document.createElement('textarea');
             tempElem.value = infor; 
             document.body.appendChild(tempElem);
 
@@ -109,7 +112,7 @@ window.addEventListener("load", function () {
     }
 
     // hover event
-    for(var t = 0; t < inforCopy.length; t++){
+    for(let t = 0; t < inforCopy.length; t++){
         inforCopy[t].addEventListener("mouseenter", function () {           
             this.classList.add("show");
             this.nextElementSibling.innerText = "Click to Copy!"
